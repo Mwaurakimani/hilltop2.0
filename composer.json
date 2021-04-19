@@ -1,0 +1,17 @@
+{
+    "name": "app/lyricorn",
+    "description": "N/A",
+    "type": "project",
+    "authors": [{
+        "name": "MwauraKimani",
+        "email": "kimmwaus@gmail.com"
+    }],
+    "autoload": {
+        "psr-4": {
+            "Lyricorn\\": "App/Lyricorn"
+        }
+    },
+    "require": {
+        "cboden/ratchet": "^0.4.3"
+    }
+}
