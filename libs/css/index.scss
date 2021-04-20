@@ -1,0 +1,115 @@
+// configuration
+@import "scss/config";
+body {
+    background-image: url("#{$host_name}/res/images/system_image/log_in_bg.jpg");
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+#log_in_panel_container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(56, 56, 56, 0.72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & .log_in_panel {
+        width: 380px;
+        height: 480px;
+        background-image: linear-gradient(45deg, rgb(46, 148, 109), rgb(228, 89, 89)), linear-gradient(127deg, rgb(59, 150, 211), rgb(228, 89, 89));
+        border-radius: 2px;
+        font-family: 'ubuntu_local', sans-serif;
+        & h2 {
+            height: 120px;
+            line-height: 140px;
+            padding-left: 70px;
+            margin-bottom: 0;
+            color: white;
+        }
+        & .input_group_elem {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: flex-start;
+            padding-left: 40px;
+            flex-direction: column;
+            & .input_div {
+                max-width: 300px;
+                height: 35px;
+                display: flex;
+                flex-direction: row;
+                overflow: hidden;
+                background-color: white;
+                box-sizing: border-box;
+                & .par {
+                    width: 30px;
+                    height: 30px;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    & img {
+                        height: 27px;
+                    }
+                }
+                &>input {
+                    width: calc(100% - 60px);
+                    height: 35px;
+                    border: none;
+                    outline: none;
+                    background-color: transparent;
+                    color: grey;
+                }
+            }
+            &>input,
+            & .input_div {
+                height: 30px;
+                width: 300px;
+                border-radius: 15px;
+                padding: 0px 10px;
+                border: none;
+                outline: none;
+                color: rgb(72, 72, 72);
+                &:focus {}
+            }
+            & label {
+                color: white;
+                font-size: small;
+            }
+        }
+        & button {
+            width: 80%;
+            display: block;
+            height: 40px;
+            background-color: rgb(13, 150, 223);
+            color: white;
+            border: none;
+            outline: none;
+            margin: auto;
+            margin-top: 30px;
+            border-radius: 20px;
+            &:hover {
+                background-color: rgb(8, 102, 152);
+            }
+        }
+        & hr {
+            width: 80%;
+            border: 1px solid grey;
+        }
+        & a {
+            text-align: center;
+            width: 100%;
+            display: block;
+            color: white;
+            text-decoration: underline;
+        }
+    }
+}

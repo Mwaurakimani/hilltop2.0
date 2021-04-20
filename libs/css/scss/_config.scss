@@ -1,0 +1,10 @@
+$host_name: 'http://hilltop2.local';
+@font-face {
+    font-family: 'ubuntu_local';
+    src: url("#{$host_name}/res/fonts/Ubuntu/Ubuntu-Medium.ttf") format('truetype');
+}
+
+// USAGE
+// body {
+//     font-family: 'ubuntu_local', sans-serif;
+// }

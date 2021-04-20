@@ -10,8 +10,5 @@
         "psr-4": {
             "Lyricorn\\": "App/Lyricorn"
         }
-    },
-    "require": {
-        "cboden/ratchet": "^0.4.3"
     }
 }

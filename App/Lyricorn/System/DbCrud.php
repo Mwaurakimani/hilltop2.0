@@ -12,7 +12,7 @@ class DbCrud extends DbConnect
     public function runQuery($sql)
     {
         $stmt = $this->conn->prepare($sql);
-        return $sql;
+        return $stmt;
     }
 }
 

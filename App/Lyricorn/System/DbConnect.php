@@ -6,10 +6,10 @@ use PDOException;
 
 class DbConnect
 {
-    private $host = 'localhost';
-    private $user = 'root';
-    private $password = '';
-    private $dbname = 'post';
+    private $host = APP_HOST_NAME;
+    private $user = APP_DATABASE_USER;
+    private $password = APP_DATABASE_PASSWORD;
+    private $dbname = APP_DATABASE_NAME;
 
     private $conn;
     
