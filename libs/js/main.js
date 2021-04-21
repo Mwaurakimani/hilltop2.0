@@ -1,14 +1,36 @@
-//main module js file
-const live_js = 'libs/js/3rd_party/liveJS.js';
-//views
-const home_view = 'libs/js/views/home.js';
+const pathToJs = "libs/js/";
+const importsObject = {
+    //3rd party
+    liveJs: `3rd_party/liveJs.js`,
+
+    //config file
+    config: `config/config.js`,
+
+    //system files
+    //classes
+    components: "system/classes/components.js",
+    containers: "system/classes/containers.js",
+    fetcher: "system/classes/fetcher.js",
+    modules: "system/classes/module.js",
 
 
+    //views
+    home: "system/views/home.js"
 
-require([
-    live_js,
-    home_view
-], function() {
+};
+
+function compiler(params) {
+    const importFiles = [];
+    for (const param of Object.values(params)) {
+        importFiles.push(`${pathToJs}${param}`);
+    }
+
+    return importFiles;
+}
+
+const items = compiler(importsObject);
+
+require(items, function() {
     $(document).ready(function() {
 
     });

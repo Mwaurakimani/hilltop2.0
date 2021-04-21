@@ -23,6 +23,8 @@ if(!isset($_SESSION['USER'])){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap" rel="stylesheet">
     <!-- end render plugins -->
 
     <!-- site_content -->
@@ -35,11 +37,58 @@ if(!isset($_SESSION['USER'])){
 
 <body>
     <div id="over_lay_element">
-        
+        <div class="overlay_close" onclick="over_lays.render_toggle()">
+            <img src="<?php echo ICON_PATH.'close_overlay.png' ?>" alt="">
+        </div>
+        <div class="overlay_content" onclick="over_lays.render_toggle()">
+        </div>
     </div>
     <nav id="home_navigation">
-        <div class="logo_elem" onclick="">
-            
+        <div class="logo_elem" onclick="over_lays.render_toggle()">
+           <img src="logo.png" alt=""> 
+        </div>
+        <div class="nav_mid">
+            <div class="system_clock">
+                <div class="clock_item">
+                </div>
+                <div class="calender_item">
+                </div>
+            </div>
+            <div class="system_search">
+                <div class="search_field">
+                    <input type="search" placeholder="Search..." onfocus="search_display.render_display()" onblur="search_display.render_hide()"> 
+                </div>
+                <div class="search_display_area">
+                        
+                </div>
+            </div>
+        </div>
+        <div class="nav_end">
+            <div class="quick_nav_tabs">
+                <div class="icon_holder">
+                <img src="<?php echo ICON_PATH.'settings.png' ?>" alt="">
+                </div>
+                <div class="action_panel">
+
+                </div>
+            </div>
+            <div class="quick_nav_tabs">
+                <div class="icon_holder">
+                <img src="<?php echo ICON_PATH.'blue_notification.png' ?>" alt="">
+                <span class="notification_chip">12</span>
+                </div>
+                <div class="action_panel">
+                    
+                </div>
+            </div>
+            <div class="quick_nav_tabs">
+                <div class="icon_holder">
+                <img src="<?php echo ICON_PATH.'blue_user_icon.png' ?>" alt="">
+                </div>
+                <div class="action_panel">
+                    
+                </div>
+            </div>
         </div>
     </nav>
     <section id="body_container" >

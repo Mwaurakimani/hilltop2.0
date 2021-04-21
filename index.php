@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- end render plugins -->
     <!-- site_content -->
     <link rel="stylesheet" type="text/css" href="libs/css/index.css">
-    <script src="libs/js/system/index.js" ></script>
+    <script src="libs/js/system/views/index.js" ></script>
     <script src="libs/js/3rd_party/liveJs.js" ></script>
     <!-- end_site_content -->
     <title>Log In</title>
