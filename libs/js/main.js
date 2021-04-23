@@ -1,5 +1,7 @@
 const pathToJs = "libs/js/";
 const importsObject = {
+
+
     //3rd party
     liveJs: `3rd_party/liveJs.js`,
 
@@ -9,13 +11,13 @@ const importsObject = {
     //system files
     //classes
     components: "system/classes/components.js",
-    containers: "system/classes/containers.js",
+    mixins: "system/classes/mixins.js",
     fetcher: "system/classes/fetcher.js",
     modules: "system/classes/module.js",
 
-
     //views
-    home: "system/views/home.js"
+    home: "system/views/home.js",
+
 
 };
 
