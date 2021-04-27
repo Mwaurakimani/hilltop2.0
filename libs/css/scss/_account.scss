@@ -1,0 +1,90 @@
+@import "./config";
+#user_input_form {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    & .main_details,
+    .sub_details {
+        padding-bottom: 20px;
+        box-shadow: 0 1px 7px rgb(151, 151, 151);
+        & .input_group {
+            width: 98%;
+            height: 40px;
+            display: flex;
+            margin-bottom: 2px;
+            padding-left: 5px;
+            align-items: center;
+            justify-content: flex-start;
+            & label {
+                width: 100px;
+                height: 30px;
+                padding: 0;
+                margin: 0;
+                line-height: 30px;
+                color: rgb(100, 100, 100);
+            }
+            &>input,
+            &>select {
+                outline: none;
+                width: calc(100% - 105px);
+                color: rgb(60, 60, 60);
+                padding-left: 5px;
+                &:focus {
+                    border: 2px solid $primary_color;
+                }
+            }
+        }
+        & .sub_holder {
+            width: 98%;
+            padding: 0;
+            & .input_sub_group {
+                width: 50%;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                padding-left: 4px;
+                & label {
+                    height: 35px;
+                }
+                & input {
+                    height: 33px;
+                    padding: 0;
+                    margin: 0;
+                    width: 200px;
+                    color: rgb(60, 60, 60);
+                    padding-left: 5px;
+                    &:focus {
+                        outline: none;
+                        border: 2px solid $primary_color;
+                    }
+                }
+            }
+        }
+    }
+    & .main_details {
+        width: 55%;
+        & h3 {
+            font-size: 110%;
+            padding-left: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+    & .sub_details {
+        width: 44%;
+        & h3 {
+            font-size: 110%;
+            padding-left: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        & select {
+            height: 33px;
+            padding: 0;
+            margin: 0;
+            width: 200px;
+        }
+    }
+}

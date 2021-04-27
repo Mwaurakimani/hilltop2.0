@@ -53,10 +53,13 @@
     </div>
 </div>
 <div class=".table_view"  id="catalog_panel_1">
-    
+    <div id="catalog_form">
+        <div class="item_name">
+            <p>Name:</p>
+            <input type="text" name="product_name">
+        </div>
+        <div class="product_details">
+            
+        </div>
+    </div>
 </div>
-<script>
-    setTimeout(function(){
-        tables = new display_table($("#catalog_panel_1"));
-    },500);
-</script>

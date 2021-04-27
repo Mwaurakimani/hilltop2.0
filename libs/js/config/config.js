@@ -20,6 +20,10 @@ const path = {
     },
     Accounts: {
         account: "views/Accounts/account/",
-        myAccount: "views/Accounts/myAccount/",
+        users: "views/Accounts/users/",
     },
 };
+
+function cout(params) {
+    console.log(params);
+}

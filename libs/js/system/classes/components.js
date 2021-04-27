@@ -152,11 +152,14 @@ class display_table extends Component {
 class nav_pan extends Component {
     constructor(element, paths) {
         super(element);
+        this.click_to_load_main = false;
     }
     get_intent() {
         let ren = null;
         let btn_list = this.element.find('li');
+
         let clicked = event.currentTarget;
+
         $.each(btn_list, function(index, value) {
             if (clicked === value) {
                 this.caller = $(value);
@@ -170,54 +173,83 @@ class nav_pan extends Component {
                 ren = render;
             }
         });
+        this.click_to_load_main = true;
         this.ren = ren;
+        return this;
     }
-    render_body_content(path, render_elem, fun) {
 
-        this.get_intent();
+    pre_def_intent(item) {
+        this.element.find('li>p').each(
+            (index, value) => {
+                if ($(value).text() == item) {
+                    this.caller = $(value).parent();
+                }
+            }
+        );
+        this.intent = this.caller.find("p").text();
+        this.ren = {
+            caller: this.caller,
+            intent: this.intent
+        };
+        return this;
+    }
+
+    render_body_content(path, fun) {
+        let action = this.click_to_load_main;
+
+        if (action) {
+
+            this.get_intent();
+
+        } else {
+
+            this.pre_def_intent();
+
+        }
+
 
         if (this.ren !== null) {
-            const load_out = render_elem;
+            let load_out = $('#item_content');
 
             if (load_out.length > 0) {
                 $.ajax({
                         method: "POST",
                         url: path,
+                        // async: false
                     })
                     .done((msg) => {
                         load_out.html(msg);
+                        this.msg = msg;
+
+                        return this;
                     })
                     .fail((msg) => {
-                        console.log("hello");
+                        console.log("Error");
+                        this.msg = msg;
+                        return this;
                     });
+                return this;
             } else {
-                alert("could not find load out");
+                alert("No load_out selected!");
+                return this;
             }
         } else {
-            alert("Error fetching data");
+            console.log("get_intent cant return null!");
+            return this;
         }
-        return true;
+        return this;
     }
-    render_list(path) {
-        let elem = $('#catalog_panel_1');
-        elem.load(path);
+    init(param) {
+        setTimeout(() => {
+            if (param != undefined) {
+                param(this);
+            } else {
+                this.init();
+            }
+        }, 500);
     }
-
-
 }
 
 
 
-// / Navigation
-
-// var elem;
-// let interval = setInterval(() => {
-//     let elem = $('#catalog_panel_1');
-//     console.log("done");
-//     if (elem !== 'undefined') {
-//         clearInterval(interval);
-//         elem.load(path);
-//     }
-// }, 500);
-
-// navigation_panel.render_list(path.Operations.catalogue+'list.php')
+// </Navigation>

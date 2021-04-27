@@ -1,5 +1,7 @@
 // configuration
 @import "scss/config";
+@import "scss/account";
+@import "scss/catalogue";
 body,
 html {
     width: 100%;
@@ -211,7 +213,7 @@ html {
         height: 100%;
         float: left;
         overflow: auto;
-        & .item_content {
+        & #item_content {
             & .content_body_title {
                 margin-bottom: 10px;
                 & h4 {
@@ -358,6 +360,7 @@ html {
                     }
                 }
             }
+            & .pagination {}
         }
     }
     & #side_bar_container {

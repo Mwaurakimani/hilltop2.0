@@ -1,10 +1,10 @@
 <?php
 require_once "App/init.php";
 
-if(!isset($_SESSION['USER'])){
-    //some fields were empty
-    header("location:http://" . DOMAIN ."/index.php?logIn=801");
-}
+// if(!isset($_SESSION['USER'])){
+//     //some fields were empty
+//     header("location:http://" . DOMAIN ."/index.php?logIn=801");
+// }
 ?>
 <html lang="en">
 
@@ -99,14 +99,14 @@ if(!isset($_SESSION['USER'])){
                 </div>
                 <div class="group_body">
                     <ul>
-                        <li onclick="navigation_panel.render_body_content(path.Home.shop+'view.php',$('.item_content'));">
+                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Home.shop+'view.php',$('.item_content'));">
                             <img src="<?php echo ICON_PATH.'shop.png' ?>" alt="">
                             <p>Shop</p>
                         </li>
                         <li>
                             <img src="<?php echo ICON_PATH.'dashboard.png' ?>" alt="">
                             <p>Dashboard</p>
-                        </li onclick="navigation_panel.render_body_content(path.Home.Dashboard+'Dashboard.php',$('.item_content'));">
+                        </li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Home.Dashboard+'Dashboard.php',$('.item_content'));">
                     </ul>
                 </div>
             </div>
@@ -117,31 +117,31 @@ if(!isset($_SESSION['USER'])){
                 </div>
                 <div class="group_body">
                     <ul>
-                        <li onclick="navigation_panel.render_body_content(path.Operations.POS+'POS.php',$('.item_content'));">
+                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Operations.POS+'POS.php',$('.item_content').init(catalogue_init));">
                             <img src="<?php echo ICON_PATH.'pos.png' ?>" alt="">
                             <p>P.O.S</p>
                         </li>
-                        <li onclick="navigation_panel.render_body_content(path.Operations.stockControl+'stockControl.php',$('.item_content'));">
+                        <li onclick="navigation_panel.get_intent().pre_def_intent('Account').render_body_content(path.Operations.stockControl+'stockControl.php',$('.item_content').init(catalogue_init));">
                             <img src="<?php echo ICON_PATH.'stock.png' ?>" alt="">
                             <p>Stock Control</p>
                         </li>
-                        <li onclick="navigation_panel.render_body_content(path.Operations.catalogue+'catalogue.php', $('.item_content'))">
+                        <li  onclick="navigation_panel.get_intent().render_body_content(path.Operations.catalogue+'catalogue.php').init(catalogue_init)">
                             <img src="<?php echo ICON_PATH.'catalogue.png' ?>" alt="">
                             <p>Catalogue</p>
                         </li>
-                        <li onclick="navigation_panel.render_body_content(path.Operations.sales+'sales.php',$('.item_content'));">
+                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Operations.sales+'sales.php',$('.item_content').init(catalogue_init));">
                             <img src="<?php echo ICON_PATH.'sales.png' ?>" alt="">
                             <p>Sales</p>
                         </li>
-                        <li onclick="navigation_panel.render_body_content(path.Operations.transactions+'transactions.php',$('.item_content'));">
+                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Operations.transactions+'transactions.php',$('.item_content').init(catalogue_init));">
                             <img src="<?php echo ICON_PATH.'transaction.png' ?>" alt="">
                             <p>Transactions</p>
                         </li>
-                        <li onclick="navigation_panel.render_body_content(path.Operations.customer+'customer.php',$('.item_content'));">
+                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Operations.customer+'customer.php',$('.item_content').init(catalogue_init));">
                             <img src="<?php echo ICON_PATH.'customer.png' ?>" alt="">
                             <p>Customers</p>
                         </li>
-                        <li onclick="navigation_panel.render_body_content(path.Operations.vendor+'vendor.php',$('.item_content'));">
+                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Operations.vendor+'vendor.php',$('.item_content').init(catalogue_init));">
                             <img src="<?php echo ICON_PATH.'vendor.png' ?>" alt="">
                             <p>Vendors</p>
                         </li>
@@ -155,19 +155,19 @@ if(!isset($_SESSION['USER'])){
                 </div>
                 <div class="group_body">
                     <ul>
-                        <li onclick="navigation_panel.render_body_content(path.Management.notification+'notification.php',$('.item_content'));">
+                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Management.notification+'notification.php',$('.item_content'));">
                             <img src="<?php echo ICON_PATH.'mail.png' ?>" alt="">
                             <p>Notifications</p>
                         </li>
-                        <li onclick="navigation_panel.render_body_content(path.Management.reports+'reports.php',$('.item_content'));">
+                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Management.reports+'reports.php',$('.item_content'));">
                             <img src="<?php echo ICON_PATH.'report.png' ?>" alt="">
                             <p>Reports</p>
                         </li>
-                        <li onclick="navigation_panel.render_body_content(path.Management.customization+'customization.php',$('.item_content'));">
+                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Management.customization+'customization.php',$('.item_content'));">
                             <img src="<?php echo ICON_PATH.'custom.png' ?>" alt="">
                             <p>Customization</p>
                         </li>
-                        <li onclick="navigation_panel.render_body_content(path.Management.mediaManagement+'mediaManagement.php',$('.item_content'));">
+                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Management.mediaManagement+'mediaManagement.php',$('.item_content'));">
                             <img src="<?php echo ICON_PATH.'mediaManager.png' ?>" alt="">
                             <p>Media Management</p>
                         </li>
@@ -181,11 +181,11 @@ if(!isset($_SESSION['USER'])){
                 </div>
                 <div class="group_body">
                     <ul>
-                        <li onclick="navigation_panel.render_body_content(path.Account.account+'view.php',$('.item_content'));">
+                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Accounts.account+'userForm.php',$('.item_content'));">
                             <img src="<?php echo ICON_PATH.'users.png' ?>" alt="">
-                            <p>Accounts</p>
+                            <p>Account</p>
                         </li>
-                        <li onclick="navigation_panel.render_body_content(path.Account.myAccount+'view.php',$('.item_content'));">
+                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Accounts.myAccount+'list.php',$('.item_content'));">
                             <img src="<?php echo ICON_PATH.'myAccount.png' ?>" alt="">
                             <p>My Account</p>
                         </li>
@@ -212,12 +212,12 @@ if(!isset($_SESSION['USER'])){
             
         </div>
         <div id="body_content_container">
-            <div class="item_content">
-                
+            <div id="item_content">
+
             </div>
         </div>
         <div id="side_bar_container">
-
+            
         </div>
     </section>
     

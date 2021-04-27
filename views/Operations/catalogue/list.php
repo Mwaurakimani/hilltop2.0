@@ -5,7 +5,7 @@
     <thead class="thead-dark">
         <tr>
             <th scope="col">
-                <input type="checkbox" class="check_all" name="check_all" onchange="tables.toggle_all_check()">
+                <input type="checkbox" class="check_all" name="check_all" onchange="catalogue_table.toggle_all_check()">
             </th>
             <th scope="col">#</th>
             <th scope="col">Product ID</th>
