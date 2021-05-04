@@ -1,11 +1,10 @@
 class userAccount extends View {
     constructor(elem, stats, user = null) {
         super(elem, stats);
-        this.path = "views/Accounts/account/";
+        this.path_personal = "views/Accounts/account/";
+        this.path_other = "views/Accounts/users/";
 
         if (user == null) {
-            // console.log("Creating Mode");
-            //db_prop
             this.user = {
                 userID: null,
                 firstName: null,
@@ -16,13 +15,40 @@ class userAccount extends View {
                 ID_number: null,
                 Status: null
             };
-        } else {
-            // console.log("Update Mode");
         }
     }
 
+    //helper methods
+    array_combine(fields, elements) {
+
+        $.each(elements, (index, element) => {
+            var field_name = element[1];
+            $.each(fields, (title, value) => {
+                if (field_name == title) {
+                    if (element[0].length > 0) {
+                        fields[title] = element[0].val();
+                    }
+                }
+            });
+        });
+
+        return fields;
+    }
+    validate_data(user_data) {
+        var validated = false;
+        $.each(user_data, (index, value) => {
+            if (value == null || value == "") {
+                validated = false;
+                return validated;
+            } else {
+                validated = true;
+            }
+        });
+
+        return validated;
+    }
     get_user_details() {
-        let variable_length = [
+        let elements = [
             [$("[name='userID']"), "userID"],
             [$("[name='firstName']"), "firstName"],
             [$("[name='lastName']"), "lastName"],
@@ -48,14 +74,16 @@ class userAccount extends View {
             userGroup: null
         };
 
-        let user_data = this.array_combine(fields, variable_length);
-        var validated_data = this.validate_data(user_data);
+        let form_data = this.array_combine(fields, elements);
+
+        var validated_data = this.validate_data(form_data);
 
         if (validated_data) {
-            this.user = user_data;
+            this.form_data = form_data;
+            this.test = true;
             // spanner_loader
         } else {
-            this.user = {
+            this.form_data = {
                 userID: "hi",
                 firstName: "hi",
                 lastName: "hi",
@@ -67,62 +95,108 @@ class userAccount extends View {
                 Status: "hi",
                 userGroup: "hi"
             };
+            this.test = true;
         }
 
         return this;
     }
+
+    // crud
     create_user() {
-        var bind_data = this.user;
+        this.get_user_details();
+        if (!this.test) {
+            return;
+        }
+        var bind_data = this.form_data;
+
+
+        let path1 = './views/Accounts/accounts_control.php';
+
+        let uplink1 = new uplink("create", path1, "create_user", "post", bind_data, call_back_success);
+
+        function call_back_success(msg) {
+            var data = JSON.parse(msg);
+            alert(data.response_stmt);
+
+            navigation_panel
+                .pre_def_intent('Accounts')
+                .render_body_content(path.Accounts.users + 'list.php', user_init);
+        }
+
+        return this;
+    }
+    update_user(id) {
+        this.get_user_details();
+        if (!this.test) {
+            return;
+        }
+        var bind_data = this.form_data;
 
         let uplink1 = null;
 
-        let path = './views/Accounts/accounts_control.php';
+        let path1 = './views/Accounts/accounts_control.php';
 
-        uplink1 = new uplink("create", path, "create_user", "post", bind_data, call_back_success);
+        uplink1 = new uplink("update", path1, "update_user", "post", bind_data, call_back_success);
 
         function call_back_success(msg) {
-            console.log(msg);
+            if (msg == true) {
+                alert("Updated Successfully.");
+            } else {
+                alert("Not Successful.");
+            }
         }
 
         return this;
     }
+    delete_account(id) {
 
-    array_combine(fields, variable_length) {
-        var user = {
+        let uplink1 = null;
 
-        };
-        $.each(variable_length, (index, val) => {
-            var field_name = val[1];
-            $.each(fields, (index1, val1) => {
-                if (val[1] == index1) {
-                    if (val[0].length > 0) {
-                        var elem = (val[0]);
-                        fields[index1] = elem.val();
-                    }
-                }
-            });
-        });
+        let path1 = './views/Accounts/accounts_control.php';
 
-        return fields;
+        uplink1 = new uplink("delete", path1, "delete_user", "post", id, call_back_success);
+
+        function call_back_success(msg) {
+            var response = JSON.parse(msg);
+
+            if (response.status == true) {
+                alert(response.response);
+
+                navigation_panel
+                    .pre_def_intent('Accounts')
+                    .render_body_content(path.Accounts.users + 'list.php', user_init);
+            } else {
+                alert("Error deleting user");
+            }
+        }
     }
 
-    validate_data(user_data) {
-        var validated = false;
-        $.each(user_data, (index, value) => {
-            if (value == null || value == "") {
-                validated = false;
-                return validated;
-            } else {
-                validated = true;
-            }
-        });
+    //renders
+    render_user_form() {
+        let path1 = this.path_other + "userForm.php";
 
-        return validated;
+        $('#item_content').load(path1);
+    }
+    render_update() {
+        var id = $(event.currentTarget).parent().find(".id_holder p").text();
+
+        $.ajax({
+                method: "POST",
+                url: this.path_other + "userForm.php",
+                data: id,
+            })
+            .done((msg) => {
+                $('#item_content').html(msg);
+            })
+            .fail((msg) => {
+                $('#item_content').html(msg);
+            });
     }
 
 }
 let user_account = null;
 let user_account_form = null;
+var user_view = null;
 
 
 const user_init = (paren_caller) => {
@@ -135,7 +209,7 @@ const user_init = (paren_caller) => {
 
     user_account = new userAccount($('#item_content'), user_account_val);
     view = user_account.view;
-    user_account_form = null; //accounts form
+    user_table = new display_table(view.find('#user_panel_1'));
 
     user_account.content = user_account_form;
 

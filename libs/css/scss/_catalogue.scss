@@ -227,3 +227,16 @@
         }
     }
 }
+
+.catalog_list {
+    & tbody {
+        & tr {
+            & .id_holder {
+                width: 8%;
+            }
+            & .name {
+                width: 30%;
+            }
+        }
+    }
+}

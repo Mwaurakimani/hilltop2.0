@@ -133,7 +133,6 @@ html {
             }
             & .action_panel {
                 width: 250px;
-                height: 300px;
                 background-color: red;
                 position: relative;
                 right: 200;
@@ -141,6 +140,20 @@ html {
                 box-shadow: 1px 2px 6px grey;
                 border-radius: 3px;
                 display: none;
+            }
+            & .user_pan {
+                & button {
+                    width: 100%;
+                    height: 40px;
+                    border: none;
+                    outline: none;
+                    text-align: left;
+                    padding-left: 10px;
+                    &:hover {
+                        background-color: $primary_color;
+                        color: white;
+                    }
+                }
             }
         }
     }
@@ -307,7 +320,8 @@ html {
                     box-shadow: 0px 1px 6px rgb(158, 158, 158);
                 }
             }
-            & #catalog_panel_1 {
+            & #catalog_panel_1,
+            #user_panel_1 {
                 width: 99%;
                 margin: auto;
                 & table {
@@ -401,6 +415,16 @@ html {
     }
 }
 
+.form_disable_input {
+    & input,
+    select {
+        pointer-events: none;
+    }
+    & input[type="password"] {
+        pointer-events: auto;
+    }
+}
+
 
 /* width */
 
@@ -428,4 +452,18 @@ html {
  ::-webkit-scrollbar-thumb:hover {
     width: 20px;
     background: rgb(48, 134, 214);
+}
+
+.no_data_found_elem {
+    width: 100%;
+    height: 200px;
+    box-shadow: 0 0 6px rgb(100, 100, 100);
+    & p {
+        line-height: 200px;
+        text-align: center;
+        font-size: 200%;
+        font-weight: 600;
+        color: rgb(75, 75, 75);
+        font-style: italic;
+    }
 }

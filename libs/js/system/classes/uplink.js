@@ -1,23 +1,53 @@
 class uplink {
     constructor(mode, url, action, method, data_bind, callbacks, reference = null) {
+
+        $("body").css("cursor", "progress");
         this.mode = mode;
         this.bind_data = data_bind;
         this.action = action;
         this.method = method;
         this.reference = reference;
+        var data;
 
         switch (mode) {
             case "create":
-                this.post_data(url, data_bind, callbacks);
+                data = {
+                    action: this.mode,
+                    intent: this.action,
+                    data: {
+                        prop: data_bind
+                    }
+                };
+                this.post_data(url, data, callbacks);
                 break;
             case "read":
                 console.log(mode);
                 break;
             case "update":
-                console.log(mode);
+                data = {
+                    action: this.mode,
+                    intent: this.action,
+                    data: {
+                        prop: data_bind
+                    }
+                };
+                this.post_data(url, data, callbacks);
                 break;
             case "delete":
-                console.log(mode);
+                data = {
+                    action: this.mode,
+                    intent: this.action,
+                    data: {
+                        prop: data_bind
+                    }
+                };
+                this.post_data(url, data, callbacks);
+                break;
+            case "sys_action":
+                data = {
+                    action: action
+                };
+                this.post_data(url, data, callbacks);
                 break;
 
             default:
@@ -27,17 +57,18 @@ class uplink {
     }
 
     post_data(url, data, callbacks) {
-        console.log(url);
         $.ajax({
                 method: "POST",
                 url: url,
-                data: data
+                data: data,
             })
             .done((msg) => {
-                console.log(msg);
+                $("body").css("cursor", "default");
+                callbacks(msg);
             })
             .fail((msg) => {
-                console.log(msg);
+                $("body").css("cursor", "default");
+                callbacks(msg);
             });
     }
 }

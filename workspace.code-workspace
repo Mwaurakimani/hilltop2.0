@@ -4,5 +4,18 @@
             "path": "."
         }
     ],
-    "settings": {}
+    "settings": {
+        "files.exclude": {
+            "**/.git*": true,
+            "package*": true,
+            ".vs*": true,
+            "node_*": true,
+            "vendor*":true,
+            ".*":true,
+            "favicon.ico":true,
+            "REA*": true,
+            "logo.png":true,
+            "**/require.js":true,
+        }
+    }
 }

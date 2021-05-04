@@ -20,12 +20,15 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    overflow: auto;
     & .log_in_panel {
         width: 380px;
         height: 480px;
         background-image: linear-gradient(45deg, rgb(46, 148, 109), rgb(228, 89, 89)), linear-gradient(127deg, rgb(59, 150, 211), rgb(228, 89, 89));
         border-radius: 2px;
         font-family: 'ubuntu_local', sans-serif;
+        margin-bottom: 5px;
         & h2 {
             height: 120px;
             line-height: 140px;
@@ -111,5 +114,43 @@ html {
             color: white;
             text-decoration: underline;
         }
+    }
+    & .error_render {
+        padding: 15px;
+        width: 380px;
+        background-color: rgba(0, 0, 0, 0.638);
+        &>p {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 20px;
+            font-size: 16px;
+        }
+        &>ul {
+            width: 100%;
+            &>li {
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                &>p {
+                    padding: 0;
+                    margin: 0;
+                    width: 100%;
+                    height: 18px;
+                    font-size: 16px;
+                }
+                &>ul {
+                    &>li {
+                        padding: 0;
+                        margin: 0;
+                        width: 100%;
+                        height: 18px;
+                        font-size: 14px;
+                        color: red;
+                    }
+                }
+            }
+        }
+        // display: none;
     }
 }

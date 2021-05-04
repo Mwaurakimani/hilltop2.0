@@ -1,5 +1,12 @@
 <?php
 require_once "App/init.php";
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if(! isset($_SESSION['USER'])){
+    header("location:http://" . DOMAIN ."/index.php");
+    exit();
+}
 
 // if(!isset($_SESSION['USER'])){
 //     //some fields were empty
@@ -63,7 +70,7 @@ require_once "App/init.php";
                 </div>
             </div>
         </div>
-        <div class="nav_end">
+        <div class="nav_end" id="nav_end">
             <div class="quick_nav_tabs">
                 <div class="icon_holder">
                 <img src="<?php echo ICON_PATH.'settings.png' ?>" alt="">
@@ -85,8 +92,9 @@ require_once "App/init.php";
                 <div class="icon_holder">
                 <img src="<?php echo ICON_PATH.'blue_user_icon.png' ?>" alt="">
                 </div>
-                <div class="action_panel">
-                    
+                <div class="action_panel user_pan">
+                    <button><?php echo($_SESSION['USER']); ?></button>
+                    <button onclick="third_section.log_out()">Log out</button>
                 </div>
             </div>
         </div>
@@ -121,11 +129,11 @@ require_once "App/init.php";
                             <img src="<?php echo ICON_PATH.'pos.png' ?>" alt="">
                             <p>P.O.S</p>
                         </li>
-                        <li onclick="navigation_panel.get_intent().pre_def_intent('Account').render_body_content(path.Operations.stockControl+'stockControl.php',$('.item_content').init(catalogue_init));">
+                        <li onclick="navigation_panel.get_intent().render_body_content(path.Operations.stockControl+'stockControl.php',$('.item_content').init(catalogue_init));">
                             <img src="<?php echo ICON_PATH.'stock.png' ?>" alt="">
                             <p>Stock Control</p>
                         </li>
-                        <li  onclick="navigation_panel.get_intent().render_body_content(path.Operations.catalogue+'catalogue.php').init(catalogue_init)">
+                        <li  onclick="navigation_panel.get_intent().render_body_content(path.Operations.catalogue + 'list.php', catalogue_init);">
                             <img src="<?php echo ICON_PATH.'catalogue.png' ?>" alt="">
                             <p>Catalogue</p>
                         </li>
@@ -181,13 +189,13 @@ require_once "App/init.php";
                 </div>
                 <div class="group_body">
                     <ul>
-                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Accounts.account+'userForm.php',$('.item_content'));">
+                        <li onclick="navigation_panel.get_intent().render_body_content(path.Accounts.account + 'userForm.php', user_init);">
                             <img src="<?php echo ICON_PATH.'users.png' ?>" alt="">
                             <p>Account</p>
                         </li>
-                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Accounts.myAccount+'list.php',$('.item_content'));">
+                        <li onclick="navigation_panel.get_intent().render_body_content(path.Accounts.users + 'list.php', user_init);">
                             <img src="<?php echo ICON_PATH.'myAccount.png' ?>" alt="">
-                            <p>My Account</p>
+                            <p>Accounts</p>
                         </li>
                     </ul>
                 </div>

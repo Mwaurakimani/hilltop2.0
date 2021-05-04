@@ -1,12 +1,14 @@
 <?php
 namespace Lyricorn\System;
 
+use Lyricorn\System\DbConnect;
+
 class DbCrud extends DbConnect
 {
 
     function __construct()
     {
-        
+        DbConnect::__construct();
     }
 
     public function runQuery($sql)

@@ -1,3 +1,5 @@
+const root_domain = "http://hilltop2.local";
+
 const path = {
     Home: {
         shop: "views/Home/shop/",
