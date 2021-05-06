@@ -22,6 +22,10 @@ class ComposerStaticInit2c54db89aeef2053b543d3f1bd920c5a
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Lyricorn\\Operations\\Sale\\Sale' => __DIR__ . '/../..' . '/App/Lyricorn/Operations/Sale/Sale.php',
+        'Lyricorn\\Operations\\Sale\\subSale' => __DIR__ . '/../..' . '/App/Lyricorn/Operations/Sale/subSale.php',
+        'Lyricorn\\Operations\\Transaction\\Transaction' => __DIR__ . '/../..' . '/App/Lyricorn/Operations/Transaction/Transaction.php',
+        'Lyricorn\\Operations\\catalogue\\catalogue' => __DIR__ . '/../..' . '/App/Lyricorn/Operations/catalogue/catalogue.php',
         'Lyricorn\\Operations\\catalogue\\product' => __DIR__ . '/../..' . '/App/Lyricorn/Operations/catalogue/product.php',
         'Lyricorn\\System\\DbConnect' => __DIR__ . '/../..' . '/App/Lyricorn/System/DbConnect.php',
         'Lyricorn\\System\\DbCrud' => __DIR__ . '/../..' . '/App/Lyricorn/System/DbCrud.php',

@@ -2,48 +2,28 @@
     require_once ('../../../App/init.php');
 ?>
 <div class="content_body_title">
-    <h4>Catalogue</h4>
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item active">Catalogue</li>
-        </ol>
-    </nav>
+    <h4>P.O.S</h4>
 </div>
 <div class="activity_bar">
     <div class="action_bar">
         <div class="btn_activity_bar">
             <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-                Add
-            </button>
-            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-                Update
-            </button>
-            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-                Delete
+                New Sale
             </button>
         </div>
         <div class="search_field">
             <input type="search" placeholder="Search for Item">
         </div>
         <div class="export_group">
-            <button type="button" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">
-                CSV
-            </button>
-            <button type="button" class="btn btn-danger" data-toggle="button" aria-pressed="false" autocomplete="off">
-                PDF
+            <button type="button" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
+                Quotation
             </button>
         </div>
         <div class="parent_data_sort">
             <div class="input_select_item">
                 <select name="" id="">
-                    <option value="">Enable Sort</option>
-                    <option value="">Disable Sort</option>
-                </select>
-            </div>
-            <div class="input_select_item">
-                <select name="" id="">
-                    <option value="">Enable Filter</option>
-                    <option value="">Disable Filter</option>
+                    <option value="POS">POS</option>
+                    <option value="Management" selected>Management</option>
                 </select>
             </div>
         </div>
@@ -52,55 +32,84 @@
 
     </div>
 </div>
-<div class=".table_view"  id="catalog_panel_1">
-    <table class="table table-striped table-bordered table-sm">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">
-                    <input type="checkbox" class="check_all" name="check_all" onchange="catalogue_table.toggle_all_check()">
-                </th>
-                <th scope="col">#</th>
-                <th scope="col">Product ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Qty</th>
-                <th scope="col">Status</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-                for ($i=1; $i < 6; $i++) { 
-            ?>
-                <tr class="selected">
-                    <th scope="col">
-                        <input type="checkbox" class="check_all">
-                    </th>
-                    <td scope="row">
-                        <p><?php echo ($i) ?></p>
+<div class="sale_detail_elem">
+    <div class="table_view">
+        <table class="table table-sm table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Sub Total</th>
+                    <th scope="col">Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">#</th>
+                    <td class="product-name">
+                        <div class="prod_search_elem">
+                            <input autocomplete="off" type="text" onfocus="pos_obj.open_search_display()" onblur="pos_obj.close_search_display()" onkeyup="pos_obj.get_item()">
+                            <div class="search_display">
+                                <div class="no_item">
+                                    <p>No items to select from...</p>
+                                </div>
+                            </div>
+                        </div>
                     </td>
-                    <td style="overflow: auto;">
-                        <p>123</p>
+                    <td class="quantity">
+                        <input type="number" min=1 value="0" onchange="pos_obj.render_sub_sum()">
                     </td>
-                    <td>
-                        <p>chrome</p>
-                    </td>
-                    <td>
-                        <p>100</p>
-                    </td>
-                    <td>
-                        <p>Status</p>
-                    </td>
-                    <td>
-                        <img src="<?php echo ICON_PATH.'edit.png' ?>" alt="">
-                    </td>
-                    <td>
-                        <img src="<?php echo ICON_PATH.'trash.png' ?>" alt="">
+                    <td class="price"></td>
+                    <td></td>
+                    <td onclick="pos_obj.remove_product()">
+                        <img src="http://hilltop2.local/res/images/icons/remove_product.png" alt="">
                     </td>
                 </tr>
-            <?php   
-                }
-            ?>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+    <div class="sale_action">
+        <div class="sale_details">
+            <!-- <div class="elem_group">
+                <p>Quantity</p>
+                <p id="sale_price">0</p>
+            </div> -->
+            <div class="elem_group">
+                <p>Amount</p>
+                <p id="sale_Amount" >0</p>
+            </div>
+        </div>
+        <div class="sale_action_btn">
+            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="pos_obj.confirm_sale()">Confirm Sale</button>
+            <div class="make_payment">
+                <div class="elm_pay">
+                    <div class="input_group">
+                        <p>Balance:</p>
+                        <p id="rem_balance">0</p>
+                    </div>
+                    <div class="input_group">
+                        <p>Input Payment:</p>
+                        <input type="number" name="amount_payed" min=0 value="0">
+                    </div>
+                    <div class="input_group">
+                        <p>Payment Method:</p>
+                        <select name="payment_method" id="">
+                            <option value="Cash">Cash</option>
+                            <option value="M-Pesa">M-Pesa</option>
+                            <option value="Bank">Bank</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="pos_obj.make_payment()">Make Payments</button>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="pos_obj.toggle_transactions()">View Transactions</button>
+        </div>
+        <div class="transactions">
+        </div>
+    </div>
+</div>
+<div id="dev_error_display">
+
 </div>

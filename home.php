@@ -125,7 +125,7 @@ if(! isset($_SESSION['USER'])){
                 </div>
                 <div class="group_body">
                     <ul>
-                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Operations.POS+'POS.php',$('.item_content').init(catalogue_init));">
+                        <li onclick="navigation_panel.get_intent().render_body_content(path.Operations.POS+'POS.php',$('.item_content').init(pos_init));">
                             <img src="<?php echo ICON_PATH.'pos.png' ?>" alt="">
                             <p>P.O.S</p>
                         </li>
@@ -137,21 +137,13 @@ if(! isset($_SESSION['USER'])){
                             <img src="<?php echo ICON_PATH.'catalogue.png' ?>" alt="">
                             <p>Catalogue</p>
                         </li>
-                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Operations.sales+'sales.php',$('.item_content').init(catalogue_init));">
+                        <li onclick="navigation_panel.get_intent().render_body_content(path.Operations.sales+'sales.php',$('.item_content').init(catalogue_init));">
                             <img src="<?php echo ICON_PATH.'sales.png' ?>" alt="">
                             <p>Sales</p>
                         </li>
-                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Operations.transactions+'transactions.php',$('.item_content').init(catalogue_init));">
+                        <li onclick="navigation_panel.get_intent().render_body_content(path.Operations.transactions+'transactions.php',$('.item_content').init(catalogue_init));">
                             <img src="<?php echo ICON_PATH.'transaction.png' ?>" alt="">
                             <p>Transactions</p>
-                        </li>
-                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Operations.customer+'customer.php',$('.item_content').init(catalogue_init));">
-                            <img src="<?php echo ICON_PATH.'customer.png' ?>" alt="">
-                            <p>Customers</p>
-                        </li>
-                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Operations.vendor+'vendor.php',$('.item_content').init(catalogue_init));">
-                            <img src="<?php echo ICON_PATH.'vendor.png' ?>" alt="">
-                            <p>Vendors</p>
                         </li>
                     </ul>
                 </div>
@@ -231,3 +223,67 @@ if(! isset($_SESSION['USER'])){
     
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- <li onclick="navigation_panel.get_intent().render_body_content(path.Operations.customer+'customer.php',$('.item_content').init(catalogue_init));">
+                            <img src="<?php echo ICON_PATH.'customer.png' ?>" alt="">
+                            <p>Customers</p>
+                        </li>
+                        <li onclick="navigation_panel.get_intent().render_body_content(path.Operations.vendor+'vendor.php',$('.item_content').init(catalogue_init));">
+                            <img src="<?php echo ICON_PATH.'vendor.png' ?>" alt="">
+                            <p>Vendors</p>
+                        </li> -->

@@ -1,19 +1,19 @@
 <?php
-namespace Lyricorn\Operations\Sale;
+namespace Lyricorn\Operations\Transaction;
 
 use Lyricorn\User\User;
 use PDOException;
 
-class Sale extends User
+class Transaction extends User
 {
     function __construct()
     {
         User::__construct();
     }
-    public function insertSale($data)
+    public function insertTransaction($data)
     {
-        try{    
-            $stmt = $this->conn->prepare('INSERT INTO tbl_sales (fk_saleRep,saleType,sale_amount) VALUES (:fk_saleRep,:saleType,:sale_amount)');
+        try{
+            $stmt = $this->conn->prepare('INSERT INTO tbl_transactions (fk_saleRef,Amount,Method,created_by) VALUES (:fk_saleRef,:Amount,:Method,:created_by)');
 
             $stmt->execute(
                 $data                 

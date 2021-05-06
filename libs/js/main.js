@@ -16,10 +16,14 @@ const importsObject = {
 
     //operations
     catalogue: "operations/catalogue.js",
-    account: "system/views/userAccount.js",
+    pos: "operations/pos.js",
+    stockControl: "operations/stockControl.js",
+    sale: "operations/sale.js",
+    transaction: "operations/transaction.js",
 
     //views
     home: "system/views/home.js",
+    account: "system/views/userAccount.js",
 };
 
 function compiler(params) {
@@ -33,16 +37,20 @@ function compiler(params) {
 
 const items = compiler(importsObject);
 
+let over_lays = null;
+let search_display = null;
+
+
 require(items, function() {
     $(document).ready(function() {
         //compose Overlay
-        const over_lays = new main_over_lay($("#over_lay_element"));
+        over_lays = new main_over_lay($("#over_lay_element"));
 
         // initialize search display
-        const search_display = new search_display_area($(".search_display_area"));
+        search_display = new search_display_area($(".search_display_area"));
 
         //initialize main navigation
-        const navigation_panel = new nav_pan($("#nav_tabs_container"));
+        let navigation_panel = new nav_pan($("#nav_tabs_container"));
 
         //initialize Time
         // window.setInterval(function() {
@@ -58,10 +66,11 @@ function loading_view() {
     //initialize main navigation
     const navigation_panel = new nav_pan($("#nav_tabs_container"));
 
-    navigation_panel
-        .pre_def_intent('Catalogue')
-        .render_body_content(path.Operations.catalogue + 'list.php', catalogue_init);
+    // navigation_panel
+    //     .pre_def_intent('P.O.S')
+    //     .render_body_content(path.Operations.POS + 'pos.php', user_init);
 
+    pos_init();
     let btn_clicked = null;
     let intent = null;
 }

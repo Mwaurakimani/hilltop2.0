@@ -7,6 +7,10 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'Lyricorn\\Operations\\Sale\\Sale' => $baseDir . '/App/Lyricorn/Operations/Sale/Sale.php',
+    'Lyricorn\\Operations\\Sale\\subSale' => $baseDir . '/App/Lyricorn/Operations/Sale/subSale.php',
+    'Lyricorn\\Operations\\Transaction\\Transaction' => $baseDir . '/App/Lyricorn/Operations/Transaction/Transaction.php',
+    'Lyricorn\\Operations\\catalogue\\catalogue' => $baseDir . '/App/Lyricorn/Operations/catalogue/catalogue.php',
     'Lyricorn\\Operations\\catalogue\\product' => $baseDir . '/App/Lyricorn/Operations/catalogue/product.php',
     'Lyricorn\\System\\DbConnect' => $baseDir . '/App/Lyricorn/System/DbConnect.php',
     'Lyricorn\\System\\DbCrud' => $baseDir . '/App/Lyricorn/System/DbCrud.php',

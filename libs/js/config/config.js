@@ -29,3 +29,17 @@ const path = {
 function cout(params) {
     console.log(params);
 }
+
+function toggle_check_box(elem) {
+    var is_checked = elem.is(':Checked');
+
+    if (is_checked) {
+        elem.prop('value', true);
+    } else {
+        elem.prop('value', false);
+    }
+}
+
+function display_error(msg) {
+    $("#dev_error_display").html(msg);
+}

@@ -1,7 +1,12 @@
 // configuration
 @import "scss/config";
 @import "scss/account";
+//operations
+@import "scss/pos";
+@import "scss/stockControl";
 @import "scss/catalogue";
+@import "scss/sale";
+@import "scss/transaction";
 body,
 html {
     width: 100%;
@@ -162,6 +167,7 @@ html {
 #body_container {
     width: calc(100vw + 300px);
     height: calc(100% - 50px);
+    background-color: rgb(237, 237, 237);
     overflow: hidden;
     & #nav_tabs_container {
         width: 200px;
@@ -193,6 +199,7 @@ html {
                     margin: 0;
                     padding: 0;
                     & li {
+                        cursor: pointer;
                         width: 100%;
                         height: 40px;
                         display: flex;
@@ -253,6 +260,7 @@ html {
                 margin: auto;
                 display: flex;
                 flex-direction: column;
+                background-color: white;
                 & .action_bar {
                     width: 100%;
                     height: 50px;
@@ -324,6 +332,7 @@ html {
             #user_panel_1 {
                 width: 99%;
                 margin: auto;
+                background-color: white;
                 & table {
                     & thead {
                         font-size: medium;
@@ -381,6 +390,7 @@ html {
         width: 300px;
         height: 100%;
         float: left;
+        background-color: white;
     }
 }
 
@@ -466,4 +476,8 @@ html {
         color: rgb(75, 75, 75);
         font-style: italic;
     }
+}
+
+#dev_error_display {
+    width: 100%;
 }

@@ -119,7 +119,7 @@ class Catalogue extends View {
         }
         var bind_data = this.form_data;
 
-        let path1 = this.catalogue_path + 'catalogue_control';
+        let path1 = this.catalogue_path + 'catalogue_control.php';
 
         let uplink1 = new uplink("create", path1, "create_product", "post", bind_data, call_back_success);
 
@@ -141,7 +141,7 @@ class Catalogue extends View {
 
         let uplink1 = null;
 
-        let path1 = this.catalogue_path + 'catalogue_control';
+        let path1 = this.catalogue_path + 'catalogue_control.php';
 
         uplink1 = new uplink("update", path1, "update_product", "post", bind_data, call_back_success);
 
@@ -219,24 +219,4 @@ const catalogue_init = (paren_caller) => {
     catalogue_table = new display_table(view.find('#catalog_panel_1'));
 
     catalogue.content = catalogue_table;
-
-    perform();
 };
-
-function perform() {
-
-}
-
-function toggle_check_box(elem) {
-    var is_checked = elem.is(':Checked');
-
-    if (is_checked) {
-        elem.prop('value', true);
-    } else {
-        elem.prop('value', false);
-    }
-}
-
-function display_error(msg) {
-    $("#dev_error_display").html(msg);
-}

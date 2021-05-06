@@ -1,20 +1,18 @@
 <?php
 namespace Lyricorn\Operations\Sale;
 
-use Lyricorn\User\User;
 use PDOException;
 
-class Sale extends User
+class subSale extends Sale
 {
     function __construct()
     {
-        User::__construct();
+        Sale::__construct();
     }
-    public function insertSale($data)
+    public function insertSubSale($data)
     {
         try{    
-            $stmt = $this->conn->prepare('INSERT INTO tbl_sales (fk_saleRep,saleType,sale_amount) VALUES (:fk_saleRep,:saleType,:sale_amount)');
-
+            $stmt = $this->conn->prepare('INSERT INTO tbl_subsale (fk_saleID,fk_product,quantity,price,sub_total,created_by) VALUES (:fk_saleID,:fk_product,:quantity,:price,:sub_total,:created_by)');
             $stmt->execute(
                 $data                 
             );

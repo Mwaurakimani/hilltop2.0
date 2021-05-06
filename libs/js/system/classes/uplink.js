@@ -21,7 +21,14 @@ class uplink {
                 this.post_data(url, data, callbacks);
                 break;
             case "read":
-                console.log(mode);
+                data = {
+                    action: this.mode,
+                    intent: this.action,
+                    data: {
+                        prop: data_bind
+                    }
+                };
+                this.post_data(url, data, callbacks);
                 break;
             case "update":
                 data = {

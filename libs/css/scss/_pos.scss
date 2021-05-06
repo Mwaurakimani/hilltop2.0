@@ -1,0 +1,239 @@
+.sale_detail_elem {
+    width: 99%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    & .table_view {
+        width: 72%;
+        background-color: white;
+        box-shadow: 0 0 6px rgb(170, 170, 170);
+        &>table {
+            & thead {
+                &>tr {
+                    &>th:nth-child(1) {
+                        width: 5%;
+                    }
+                    &>th:nth-child(2) {
+                        width: 40%;
+                    }
+                    &>th:nth-child(3) {
+                        width: 10%;
+                    }
+                    &>th:nth-child(4) {
+                        width: 20%;
+                    }
+                    &>th:nth-child(5) {
+                        width: 20%;
+                    }
+                    &>th:nth-child(6) {}
+                }
+            }
+            &>tbody {
+                &>tr {
+                    & .product-name {
+                        padding: 0;
+                        margin: 0;
+                        overflow: visible;
+                        & .prod_search_elem {
+                            width: 100%;
+                            height: 30px;
+                            background-color: green;
+                            position: relative;
+                            & input {
+                                height: 30px;
+                                width: 100%;
+                                padding-left: 5px;
+                                border: none;
+                            }
+                            & .search_display {
+                                z-index: 30;
+                                max-width: 20px;
+                                overflow: visible;
+                                background-color: pink;
+                                display: none;
+                                & .no_item {
+                                    width: 650px;
+                                    height: 100px;
+                                    display: flex;
+                                    background-color: white;
+                                    box-shadow: 0 0 6px grey;
+                                    align-items: center;
+                                    justify-content: center;
+                                    & p {
+                                        font-size: 180%;
+                                        font-weight: 700;
+                                        color: rgb(80, 80, 80);
+                                    }
+                                }
+                                & .sub_table_view {
+                                    width: 650px;
+                                    background-color: white;
+                                    box-shadow: 0 0 6px grey;
+                                    &>table {
+                                        width: 100%;
+                                        & thead {
+                                            & th:nth-child(1) {
+                                                width: 70%;
+                                            }
+                                            & th:nth-child(2) {
+                                                width: 15%;
+                                            }
+                                            & th:nth-child(3) {
+                                                width: 15%;
+                                            }
+                                        }
+                                        & tbody {
+                                            & tr {
+                                                &:hover {
+                                                    background-color: rgb(15, 140, 197);
+                                                    color: white;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &>td:nth-child(6) {
+                        padding: 0;
+                        margin: 0;
+                        & img {
+                            height: 25px;
+                            border: none;
+                            display: block;
+                            margin: auto;
+                            margin-top: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & .sale_action {
+        width: 27%;
+        height: auto;
+        background-color: white;
+        box-shadow: 0 0 6px rgb(170, 170, 170);
+        & .sale_details {
+            width: 100%;
+            padding-left: 5px;
+            padding-right: 20px;
+            padding-top: 20px;
+            & .elem_group {
+                width: 100%;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                & p {
+                    font-size: 110%;
+                    font-weight: 500;
+                    color: rgb(75, 75, 75);
+                }
+                & p:first-child {
+                    font-size: 120%;
+                    color: blue;
+                    font-weight: 500;
+                }
+            }
+        }
+        & .sale_action_btn {
+            width: 100%;
+            padding: 0 20px;
+            & button {
+                height: 40px;
+                padding-top: 0px;
+                line-height: 40px;
+            }
+            & .make_payment {
+                margin-top: 10px;
+                width: 100%;
+                border: 1px solid $primary-color;
+                border-radius: 6px;
+                margin-bottom: 10px;
+                overflow: hidden;
+                & .elm_pay {
+                    width: 100%;
+                    & .input_group {
+                        width: 100%;
+                        height: 50px;
+                        display: flex;
+                        & p:first-child {
+                            width: 140px;
+                            font-weight: 700;
+                            color: $primary-color;
+                            padding-left: 5px;
+                        }
+                        & p:nth-child(2) {
+                            font-weight: 500;
+                            color: rgb(79, 79, 79);
+                            width: calc(100% - 145px);
+                        }
+                        & input,
+                        select {
+                            width: calc(100% - 145px);
+                            height: 30px;
+                        }
+                    }
+                }
+            }
+        }
+        & .transactions {
+            margin-top: 10px;
+            width: 100%;
+            margin: auto;
+            padding-top: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            padding: 6px;
+            & .transaction_elem {
+                width: 100%;
+                height: 60px;
+                margin-bottom: 5px;
+                display: flex;
+                flex-direction: row;
+                box-shadow: 0 0 6px rgb(169, 169, 169);
+                & .holder {
+                    width: 90%;
+                    height: 60px;
+                    display: flex;
+                    flex-direction: column;
+                    & .item_holder {
+                        width: 100%;
+                        height: 25px;
+                        padding: 0;
+                        margin: 0;
+                        font-size: 20px;
+                        line-height: 25px;
+                        display: flex;
+                        flex-direction: row;
+                        padding: 3px;
+                        & p {
+                            margin: 0;
+                            padding: 0;
+                            height: 25px;
+                            padding-left: 10px;
+                        }
+                        & p:first-child {
+                            width: 100px;
+                        }
+                        width: calc(100% - 100px);
+                    }
+                }
+            }
+            & .remover {
+                width: 10%;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &:hover {
+                    background-color: red;
+                    color: white;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

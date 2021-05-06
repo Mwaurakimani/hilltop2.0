@@ -212,10 +212,4 @@ const user_init = (paren_caller) => {
     user_table = new display_table(view.find('#user_panel_1'));
 
     user_account.content = user_account_form;
-
-    perform();
 };
-
-function perform() {
-
-}
