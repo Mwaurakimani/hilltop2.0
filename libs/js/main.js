@@ -68,7 +68,7 @@ function loading_view() {
 
     navigation_panel
         .pre_def_intent('P.O.S')
-        .render_body_content(path.Operations.POS + 'pos.php', pos_init);
+        .render_body_content(path.Operations.POS + 'POS.php', pos_init);
 
     pos_init();
     let btn_clicked = null;
