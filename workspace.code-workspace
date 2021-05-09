@@ -10,7 +10,7 @@
             "package*": true,
             ".vs*": true,
             "node_*": true,
-            // "vendor*":true,
+            "vendor*":true,
             ".*":true,
             "favicon.ico":true,
             "REA*": true,

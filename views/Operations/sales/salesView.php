@@ -27,7 +27,7 @@
 
             
 
-            $sql = 'SELECT * FROM tbl_subsale WHERE fk_saleID = :fk_saleID';
+            $sql = 'SELECT * FROM tbl_subSale WHERE fk_saleID = :fk_saleID';
             $val2 = $admin->runQuery($sql);
             $val2->execute(array(
                 ':fk_saleID'=>$id

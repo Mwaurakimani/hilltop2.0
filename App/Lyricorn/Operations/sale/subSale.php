@@ -12,7 +12,7 @@ class subSale extends Sale
     public function insertSubSale($data)
     {
         try{    
-            $stmt = $this->conn->prepare('INSERT INTO tbl_subsale (fk_saleID,fk_product,quantity,price,sub_total,created_by) VALUES (:fk_saleID,:fk_product,:quantity,:price,:sub_total,:created_by)');
+            $stmt = $this->conn->prepare('INSERT INTO tbl_subSale (fk_saleID,fk_product,quantity,price,sub_total,created_by) VALUES (:fk_saleID,:fk_product,:quantity,:price,:sub_total,:created_by)');
             $stmt->execute(
                 $data                 
             );
