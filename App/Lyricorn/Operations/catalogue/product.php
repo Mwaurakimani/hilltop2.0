@@ -146,4 +146,34 @@ class product extends catalogue
             echo $e->getMessage();
         }
     }
+
+    public function resolve($data){
+        $id = $data[':fk_product'];
+        $units = $data[':units_taken'];
+
+        $sql = 'SELECT * FROM tbl_catalogue WHERE productId = :productId';
+        $prod = $this->runQuery($sql);
+        $prod->execute(array(
+            ':productId'=>$id
+        ));
+        $prod = $prod->fetchAll();
+        $current = $prod[0]['currentStock'];
+        $stock = 0;
+        $stock = (double) $current + (double) $units;
+
+        try{
+            $stmt = $this->conn->prepare("UPDATE tbl_catalogue SET currentStock=:currentStock WHERE productId=:productId;");
+
+            
+            $stmt->execute(
+                array(
+                    ':productId'=>$id,
+                    ':currentStock'=> $stock
+            ));
+
+            return true;
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
 }

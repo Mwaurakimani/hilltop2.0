@@ -213,6 +213,7 @@ class stockControl extends View {
     return_products() {
 
     }
+
     resolve() {
         var id = $("[name='stockControl_ID']").val();
         var bind_data = {
@@ -229,11 +230,11 @@ class stockControl extends View {
 
         function callback(msg) {
 
-            // $("#dev_error_display").html(msg);
-            alert("Resolved");
-            navigation_panel
-                .pre_def_intent('Stock Control')
-                .render_body_content('views/Operations/stockControl/stockControl.php', stock_handler_init);
+            $("#dev_error_display").html(msg);
+            // alert("Resolved");
+            // navigation_panel
+            //     .pre_def_intent('Stock Control')
+            //     .render_body_content('views/Operations/stockControl/stockControl.php', stock_handler_init);
         }
     }
 

@@ -224,9 +224,7 @@ if (isset($_SESSION['TOKEN'])) {
                             ":amount"=>$value['amount']
                         );
 
-                        // $return = $product->stockUpdate($val,"Add");   
-
-                        var_dump($val);
+                        $return = $product->resolve($val);   
 
                         $units_sold = (double) $val[':units_taken'] - (double) $val[':units'];
 

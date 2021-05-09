@@ -27,8 +27,6 @@
             ));
     
             $items2 = $val1->fetchAll();
-
-            print_r($items2);
     
             if(empty($items2)){
                 $data_found2 = false;
