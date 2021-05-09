@@ -284,7 +284,7 @@
                                 </div>
                             </td>
                             <td onclick="stockHandler.remover_item()">
-                                <img src="http://hilltop2.local/res/images/icons/trash.png" alt="">
+                                <img src= "<?php echo APP_http_ROUT; ?>/res/images/icons/trash.png" alt="">
                             </td>
                         </tr>
                     <?php

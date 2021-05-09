@@ -66,7 +66,7 @@
                     <td class="price"></td>
                     <td></td>
                     <td onclick="pos_obj.remove_product()">
-                        <img src="http://hilltop2.local/res/images/icons/remove_product.png" alt="">
+                        <img src= "<?php echo APP_http_ROUT; ?>/res/images/icons/remove_product.png" alt="">
                     </td>
                 </tr>
             </tbody>

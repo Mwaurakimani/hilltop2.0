@@ -85,7 +85,7 @@ class POS extends View {
             '<td class="price"></td>' +
             '<td></td>' +
             '<td onclick="pos_obj.remove_product()">' +
-            '<img src="http://hilltop2.local/res/images/icons/remove_product.png" alt="">' +
+            '<img src="' + root_domain + '/res/images/icons/remove_product.png" alt="">' +
             '</td>' +
             '</tr>' +
             '');
