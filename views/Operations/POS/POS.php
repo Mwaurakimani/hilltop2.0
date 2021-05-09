@@ -7,17 +7,19 @@
 <div class="activity_bar">
     <div class="action_bar">
         <div class="btn_activity_bar">
-            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="    navigation_panel
+        .pre_def_intent('P.O.S')
+        .render_body_content(path.Operations.POS + 'pos.php', pos_init);">
                 New Sale
             </button>
         </div>
         <div class="search_field">
-            <input type="search" placeholder="Search for Item">
+            <!-- <input type="search" placeholder="Search for Item"> -->
         </div>
         <div class="export_group">
-            <button type="button" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
+            <!-- <button type="button" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
                 Quotation
-            </button>
+            </button> -->
         </div>
         <div class="parent_data_sort">
             <div class="input_select_item">

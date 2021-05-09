@@ -91,9 +91,6 @@ if (isset($_SESSION['TOKEN'])) {
                 array_push($subSale,$sub_sale_elem);
             }
             
-
-            
-
             $pass_data = array(
                 ":fk_saleRep"=>$user_id,
                 ":saleType"=>"Retail",
@@ -124,24 +121,6 @@ if (isset($_SESSION['TOKEN'])) {
                             $val[":created_by"] = $user_id;
         
                             $var = $transaction->insertTransaction($val);
-                            if(is_int((int)$var)){
-                                $response = array(
-                                    "status"=>true,
-                                    "response_code"=>0,
-                                    "response"=>"Sale added successfully..."
-                                );
-                            
-                                echo json_encode($response);
-                            }else{
-                                $response = array(
-                                    "status"=>false,
-                                    "response_code"=>1,
-                                    "response"=>"Error adding Sale"
-                                );
-                            
-                                echo json_encode($response);
-                            }
-        
                         }
                     }else{
                         $response = array(
@@ -153,6 +132,14 @@ if (isset($_SESSION['TOKEN'])) {
                         echo json_encode($response);
                     }
                 }
+
+                $response = array(
+                    "status"=>true,
+                    "response_code"=>1,
+                    "response"=>"Sale Added"
+                );
+            
+                echo json_encode($response);
             }else{
                 $response = array(
                     "status"=>false,

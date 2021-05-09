@@ -52,6 +52,7 @@ class POS extends View {
         var elem = $(event.currentTarget);
         var name = elem.children().eq(0).text();
         var Price = elem.children().eq(1).text();
+        var quantity = elem.children().eq(2).text();
         elem.attr("data-id", data);
 
         var tr_parent = elem.closest(".product-name").parent();
@@ -59,6 +60,7 @@ class POS extends View {
         tr_parent.children().eq(0).html(data);
         tr_parent.children().eq(1).find("input").val(name);
         tr_parent.children().eq(2).find("input").val(1);
+        tr_parent.children().eq(2).find("input").attr("max", quantity);
         tr_parent.children().eq(3).html(Price);
         var sub_total = parseInt(Price) * 1;
         tr_parent.children().eq(4).html(sub_total);
@@ -102,6 +104,14 @@ class POS extends View {
         //render sub Total
         var elem = $('.sale_detail_elem>.table_view>table>tbody>tr');
         var count = 0;
+
+        var action_elem = $(event.currentTarget);
+        var subtotal_elem = action_elem.parent().parent().children().eq(4);
+        var quantity = action_elem.parent().parent().children().eq(2).find("input").val();
+        var price = action_elem.parent().parent().children().eq(3).text();
+        var sub_total = parseInt(price) * parseInt(quantity);
+        subtotal_elem.text(sub_total);
+
 
         elem.each(function(index, value) {
             var tr = $(value);

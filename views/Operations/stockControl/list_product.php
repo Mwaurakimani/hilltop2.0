@@ -40,7 +40,7 @@ if (isset($_SESSION['TOKEN'])) {
 
     switch($action){
         case "read":
-            $word = $prop;
+            $word = $prop[0];
 
             if($word == ""){
                 ?>
@@ -50,7 +50,7 @@ if (isset($_SESSION['TOKEN'])) {
                 <?php
                 exit();
             }
-            $sql = "SELECT * FROM tbl_catalogue WHERE productName LIKE CONCAT('%', :productName, '%') AND currentStock > 0 LIMIT  20";
+            $sql = "SELECT * FROM tbl_catalogue WHERE productName LIKE CONCAT('%', :productName, '%') LIMIT  20";
             $catalogue_return = $admin->runQuery($sql);
             $catalogue_return->execute(array(
                 ":productName"=>$word
@@ -96,9 +96,15 @@ if (isset($_SESSION['TOKEN'])) {
                 //here
                 foreach($catalogue as $product){
             ?>
-            <tr onclick="pos_obj.select_item(<?php echo $product['productId'] ?>)">
+            <tr onclick="stockHandler.select_item(<?php echo $product['productId'] ?>)">
                 <td><?php echo $product['productName'] ?></td>
-                <td><?php echo $product['sale_price'] ?></td>
+                <td>
+                <?php if($prop[1] == "Transfer"){
+                    echo $product['supply_price'];
+                }else{
+                    echo $product['sale_price'];
+                } ?>
+                </td>
                 <td><?php echo $product['currentStock'] ?></td>
             </tr>
             <?php

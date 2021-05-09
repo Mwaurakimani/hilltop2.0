@@ -200,6 +200,43 @@ class Catalogue extends View {
                 $('#item_content').html(msg);
             });
     }
+
+    search_product() {
+        var elem = $(event.currentTarget);
+        var value = elem.val();
+
+        $.ajax({
+                method: "POST",
+                url: this.catalogue_path + "search_item.php",
+                data: {
+                    text: value
+                }
+            })
+            .done((msg) => {
+                $('#catalog_panel_1').html(msg);
+            })
+            .fail((msg) => {
+                $('#dev_error_display').html(msg);
+            });
+
+    }
+    generate_csv_file() {
+        var elem = $("#catalog_panel_1");
+        var table = elem.children().eq(0);
+        var rows = table.find("tbody > tr");
+        var ids = [];
+
+        rows.each(function(index, value) {
+            value = $(value);
+            var id = value.children().eq(2).find("p").text();
+            ids.push(id);
+        });
+
+        ids = JSON.stringify(ids);
+        var my_path = root_domain + "/" + this.catalogue_path + "generate_csv.php?ids=" + ids;
+
+        window.open(my_path, "_blank");
+    }
 }
 let product = null;
 let product_form = null;

@@ -89,5 +89,18 @@ class User extends DbCrud
            echo $e->getMessage();
         }
     }
+
+    public function get_user_id($user_name){
+
+        $sql = 'SELECT * FROM tbl_users WHERE username = :name';
+        $user_return = $this->runQuery($sql);
+        $user_return->execute(array(
+            ':name'=>$user_name
+        ));
+        $users = $user_return->fetchAll();
+        $user_id = $users[0]["userID"];
+
+        return $user_id;
+    }
     
 }

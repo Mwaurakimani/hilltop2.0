@@ -129,7 +129,7 @@ if(! isset($_SESSION['USER'])){
                             <img src="<?php echo ICON_PATH.'pos.png' ?>" alt="">
                             <p>P.O.S</p>
                         </li>
-                        <li onclick="navigation_panel.get_intent().render_body_content(path.Operations.stockControl+'stockControl.php',$('.item_content').init(catalogue_init));">
+                        <li onclick="navigation_panel.get_intent().render_body_content(path.Operations.stockControl+'stockControl.php',$('.item_content').init(stock_handler_init));">
                             <img src="<?php echo ICON_PATH.'stock.png' ?>" alt="">
                             <p>Stock Control</p>
                         </li>
@@ -137,19 +137,19 @@ if(! isset($_SESSION['USER'])){
                             <img src="<?php echo ICON_PATH.'catalogue.png' ?>" alt="">
                             <p>Catalogue</p>
                         </li>
-                        <li onclick="navigation_panel.get_intent().render_body_content(path.Operations.sales+'sales.php',$('.item_content').init(catalogue_init));">
+                        <li onclick="navigation_panel.get_intent().render_body_content(path.Operations.sales+'sales.php',$('.item_content').init(sale_init));">
                             <img src="<?php echo ICON_PATH.'sales.png' ?>" alt="">
                             <p>Sales</p>
                         </li>
-                        <li onclick="navigation_panel.get_intent().render_body_content(path.Operations.transactions+'transactions.php',$('.item_content').init(catalogue_init));">
+                        <!-- <li onclick="navigation_panel.get_intent().render_body_content(path.Operations.transactions+'transactions.php',$('.item_content').init(catalogue_init));">
                             <img src="<?php echo ICON_PATH.'transaction.png' ?>" alt="">
                             <p>Transactions</p>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
 
-            <div class="nav_group">
+            <!-- <div class="nav_group">
                 <div class="group_head">
                     <h3 style="color:#3498DB">Management</h3>
                 </div>
@@ -173,7 +173,7 @@ if(! isset($_SESSION['USER'])){
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
 
             <div class="nav_group">
                 <div class="group_head">
@@ -200,11 +200,11 @@ if(! isset($_SESSION['USER'])){
                     <ul>
                         <li>
                             <img src="<?php echo ICON_PATH.'settings.png' ?>" alt="">
-                            <p></p>
+                            <p>Admin</p>
                         </li>
                         <li>
                             <img src="<?php echo ICON_PATH.'settings.png' ?>" alt="">
-                            <p>DashBoard</p>
+                            <p>Super User</p>
                         </li>
                     </ul>
                 </div>
@@ -213,6 +213,9 @@ if(! isset($_SESSION['USER'])){
         </div>
         <div id="body_content_container">
             <div id="item_content">
+
+                
+                
 
             </div>
         </div>

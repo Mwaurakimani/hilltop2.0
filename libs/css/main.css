@@ -192,7 +192,6 @@
 .sale_detail_elem .table_view > table > tbody > tr .product-name .prod_search_elem {
   width: 100%;
   height: 30px;
-  background-color: green;
   position: relative;
 }
 
@@ -262,6 +261,14 @@
   color: white;
 }
 
+.sale_detail_elem .table_view > table > tbody > tr p {
+  padding: 0;
+  margin: 0;
+  padding-left: 10px;
+  height: 100%;
+  line-height: 30px;
+}
+
 .sale_detail_elem .table_view > table > tbody > tr > td:nth-child(6) {
   padding: 0;
   margin: 0;
@@ -319,6 +326,7 @@
 .sale_detail_elem .sale_action .sale_action_btn {
   width: 100%;
   padding: 0 20px;
+  margin-bottom: 10px;
 }
 
 .sale_detail_elem .sale_action .sale_action_btn button {
@@ -451,6 +459,195 @@
   background-color: red;
   color: white;
   cursor: pointer;
+}
+
+.stockControl_view {
+  width: 100%;
+  padding-bottom: 10px;
+  background-color: white;
+}
+
+.stockControl_view .product_search {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  overflow: visible;
+}
+
+.stockControl_view .product_search .input_elem {
+  width: 100%;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 20px;
+}
+
+.stockControl_view .product_search .input_elem input {
+  width: 250px;
+  height: 40px;
+  border-radius: 3px;
+  border: 1px solid grey;
+  padding-left: 5px;
+}
+
+.stockControl_view .product_search .item_display {
+  position: absolute;
+  z-index: 10;
+  width: 450px;
+  background-color: white;
+  -webkit-box-shadow: 0 0 6px grey;
+          box-shadow: 0 0 6px grey;
+}
+
+.stockControl_view .product_search .item_display table thead {
+  background-color: #1f1f1f;
+  color: white;
+  height: 40px;
+}
+
+.stockControl_view .body_holder {
+  width: 99%;
+  margin: auto;
+  height: 700px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.stockControl_view .body_holder table {
+  width: 900px;
+}
+
+.stockControl_view .body_holder table thead tr th:nth-child(1) {
+  width: 20%;
+}
+
+.stockControl_view .body_holder table thead tr th:nth-child(2) {
+  width: 10%;
+}
+
+.stockControl_view .body_holder table thead tr th:nth-child(3) {
+  width: 40%;
+}
+
+.stockControl_view .body_holder table thead tr th:nth-child(4) {
+  width: 10%;
+}
+
+.stockControl_view .body_holder .stockControl_details {
+  width: calc(100% - 920px);
+  -webkit-box-shadow: 0 0 6px grey;
+          box-shadow: 0 0 6px grey;
+  padding-bottom: 10px;
+}
+
+.stockControl_view .body_holder .stockControl_details h3 {
+  width: 100%;
+  height: 50px;
+  line-height: 40px;
+  padding: 0;
+  margin: 0;
+  font-weight: 600;
+  color: white;
+  background-color: #3498DB;
+  padding-left: 15px;
+}
+
+.stockControl_view .body_holder .stockControl_details .input_elem {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-right: 10px;
+  padding-top: 8px;
+}
+
+.stockControl_view .body_holder .stockControl_details .input_elem label {
+  width: 180px;
+  height: auto;
+  padding-left: 20px;
+  padding-top: 5px;
+  font-weight: 700;
+  color: #3498DB;
+}
+
+.stockControl_view .body_holder .stockControl_details .input_elem textarea {
+  width: calc(100% - 180px);
+  height: 150px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.stockControl_view .body_holder .stockControl_details .input_elem input {
+  width: calc(100% - 180px);
+  height: 30px;
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid grey;
+}
+
+.context_bar {
+  margin-bottom: 5px;
+}
+
+.context_bar .sale_details {
+  width: 100%;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.context_bar .sale_details h3 {
+  width: 100%;
+  height: 50px;
+  background-color: #3498DB;
+  color: white;
+  padding: 8px;
+}
+
+.context_bar .sale_details .input_group {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  padding-left: 20px;
+  margin-bottom: 5px;
+}
+
+.context_bar .sale_details .input_group p {
+  padding: 0;
+  margin: 0;
+}
+
+.context_bar .sale_details .input_group p:nth-child(1) {
+  width: 200px;
+  font-weight: 600;
+  color: #3498DB;
+}
+
+.context_bar .sale_details .input_group p:nth-child(2) {
+  width: 300px;
+  padding: 5px;
+  background-color: #dadada;
 }
 
 @font-face {
@@ -769,6 +966,21 @@
 
 .catalog_list tbody tr .name {
   width: 30%;
+}
+
+.no_product_found {
+  width: 100%;
+  height: 100px;
+}
+
+.no_product_found p {
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 150%;
+  color: grey;
 }
 
 body,

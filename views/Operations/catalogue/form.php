@@ -24,7 +24,6 @@
         }
     }else{
         $data_found = false;
-        echo "no data found";
     }
 
     // var_dump($product);
@@ -85,29 +84,11 @@
             ?>
         </div>
         <div class="search_field">
-            <input type="search" placeholder="Search for Item">
+            <!-- <input type="search" placeholder="Search for Item"> -->
         </div>
         <div class="export_group">
-            <button type="button" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">
-                CSV
-            </button>
-            <button type="button" class="btn btn-danger" data-toggle="button" aria-pressed="false" autocomplete="off">
-                PDF
-            </button>
         </div>
         <div class="parent_data_sort">
-            <div class="input_select_item">
-                <select name="" id="">
-                    <option value="">Enable Sort</option>
-                    <option value="">Disable Sort</option>
-                </select>
-            </div>
-            <div class="input_select_item">
-                <select name="" id="">
-                    <option value="">Enable Filter</option>
-                    <option value="">Disable Filter</option>
-                </select>
-            </div>
         </div>
     </div>
     <div class="context_bar">

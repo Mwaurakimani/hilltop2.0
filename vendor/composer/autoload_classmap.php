@@ -12,6 +12,8 @@ return array(
     'Lyricorn\\Operations\\Transaction\\Transaction' => $baseDir . '/App/Lyricorn/Operations/Transaction/Transaction.php',
     'Lyricorn\\Operations\\catalogue\\catalogue' => $baseDir . '/App/Lyricorn/Operations/catalogue/catalogue.php',
     'Lyricorn\\Operations\\catalogue\\product' => $baseDir . '/App/Lyricorn/Operations/catalogue/product.php',
+    'Lyricorn\\Operations\\stockControl\\stockControl' => $baseDir . '/App/Lyricorn/Operations/stockControl/stockControl.php',
+    'Lyricorn\\Operations\\stockControl\\subStockControl' => $baseDir . '/App/Lyricorn/Operations/stockControl/subStockControl.php',
     'Lyricorn\\System\\DbConnect' => $baseDir . '/App/Lyricorn/System/DbConnect.php',
     'Lyricorn\\System\\DbCrud' => $baseDir . '/App/Lyricorn/System/DbCrud.php',
     'Lyricorn\\System\\Sys_Init' => $baseDir . '/App/Lyricorn/System/Sys_Init.php',

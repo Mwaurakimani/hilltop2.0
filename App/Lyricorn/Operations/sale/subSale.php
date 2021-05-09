@@ -16,6 +16,7 @@ class subSale extends Sale
             $stmt->execute(
                 $data                 
             );
+            $this->updateStock($data);
 
             $id = $this->conn->lastInsertId();
             return $id;
@@ -23,43 +24,34 @@ class subSale extends Sale
             echo $e->getMessage();
         }
     }
+    public function updateStock($data){
+        $product_id = $data[':fk_product'];
+        $quantity = $data[':quantity'];
 
-    public function updateProduct($data)
-    {
-        try{
+        $sql = 'SELECT * FROM tbl_catalogue WHERE productId = :productId';
+        $catalogue_return = $this->runQuery($sql);
+        $catalogue_return->execute(array(
+            ':productId'=>$product_id
+        ));
+        
 
-            $tracker = $data['allow_stock_tracking'];
+        $product = $catalogue_return->fetchAll();
 
-            if($tracker == "true"){
-                $data['allow_stock_tracking'] = 1;
-            }else{
-                $data['allow_stock_tracking'] = 0;
-            }
+        if(empty($product)){
+            exit();
+        }else{
+            $product = $product[0];
+            $db_quantity = $product['currentStock'];
+            $new_quantity = $db_quantity - $quantity;
 
-            $stmt = $this->conn->prepare("UPDATE tbl_catalogue SET productName=:productName, currentStock=:currentStock, units=:units, min_limit=:min_limit, max_limit=:max_limit, sale_price=:sale_price, notes=:notes,allow_stock_tracking=:allow_stock_tracking,supply_price=:supply_price WHERE productId=:productId;");
-
-            
-            $stmt->execute(
-                array(
-                    ':productId'=>$data['productId'],
-                    ':productName'=> $data['productName'],
-                    ':currentStock'=> $data['currentStock'],
-                    ':units'=> $data['units'],
-                    ':min_limit'=> $data['min_limit'],
-                    ':max_limit'=> $data['max_limit'],
-                    ':sale_price'=> $data['sale_price'],
-                    ':notes'=> $data['notes'],
-                    ':allow_stock_tracking'=> $data['allow_stock_tracking'],
-                    ':supply_price'=> $data['supply_price']
-                )                    
-            );
-
-            
-            
-            return true;
-        }catch(PDOException $e){
-            echo $e->getMessage();
+            $sql = "UPDATE tbl_catalogue SET currentStock=:currentStock WHERE productId = :productId";
+            $stmt = $this->runQuery($sql);
+            $stmt->execute(array(
+                ':currentStock'=>$new_quantity,
+                ':productId'=>$product_id
+            ));
         }
+
     }
     
     public function deleteProduct($id)

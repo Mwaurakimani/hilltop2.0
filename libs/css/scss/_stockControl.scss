@@ -1,0 +1,149 @@
+.stockControl_view {
+    width: 100%;
+    padding-bottom: 10px;
+    background-color: white;
+    .product_search {
+        width: 100%;
+        height: 50px;
+        position: relative;
+        overflow: visible;
+        & .input_elem {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 20px;
+            & input {
+                width: 250px;
+                height: 40px;
+                border-radius: 3px;
+                border: 1px solid grey;
+                padding-left: 5px;
+            }
+        }
+        & .item_display {
+            position: absolute;
+            z-index: 10;
+            width: 450px;
+            background-color: white;
+            box-shadow: 0 0 6px grey;
+            & table {
+                thead {
+                    background-color: rgb(31, 31, 31);
+                    color: white;
+                    height: 40px;
+                }
+            }
+        }
+    }
+    .body_holder {
+        width: 99%;
+        margin: auto;
+        height: 700px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: row;
+        & table {
+            width: 900px;
+            thead {
+                & tr {
+                    & th:nth-child(1) {
+                        width: 20%;
+                    }
+                    & th:nth-child(2) {
+                        width: 10%;
+                    }
+                    & th:nth-child(3) {
+                        width: 40%;
+                    }
+                    & th:nth-child(4) {
+                        width: 10%;
+                    }
+                    & th:nth-child(5) {}
+                }
+            }
+        }
+        & .stockControl_details {
+            width: calc(100% - 920px);
+            box-shadow: 0 0 6px grey;
+            padding-bottom: 10px;
+            & h3 {
+                width: 100%;
+                height: 50px;
+                line-height: 40px;
+                padding: 0;
+                margin: 0;
+                font-weight: 600;
+                color: white;
+                background-color: $primary-color;
+                padding-left: 15px;
+            }
+            & .input_elem {
+                width: 100%;
+                display: flex;
+                padding-right: 10px;
+                padding-top: 8px;
+                & label {
+                    width: 180px;
+                    height: auto;
+                    padding-left: 20px;
+                    padding-top: 5px;
+                    font-weight: 700;
+                    color: $primary-color;
+                }
+                & textarea {
+                    width: calc(100% - 180px);
+                    height: 150px;
+                    border-radius: 5px;
+                    padding: 5px;
+                }
+                & input {
+                    width: calc(100% - 180px);
+                    height: 30px;
+                    border-radius: 5px;
+                    padding: 5px;
+                    border: 1px solid grey;
+                }
+            }
+        }
+    }
+}
+
+.context_bar {
+    margin-bottom: 5px;
+    .sale_details {
+        width: 100%;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        & h3 {
+            width: 100%;
+            height: 50px;
+            background-color: $primary-color;
+            color: white;
+            padding: 8px;
+        }
+        & .input_group {
+            width: 100%;
+            display: flex;
+            align-items: baseline;
+            padding-left: 20px;
+            margin-bottom: 5px;
+            & p {
+                padding: 0;
+                margin: 0;
+            }
+            & p:nth-child(1) {
+                width: 200px;
+                font-weight: 600;
+                color: $primary-color;
+            }
+            & p:nth-child(2) {
+                width: 300px;
+                padding: 5px;
+                background-color: rgb(218, 218, 218);
+            }
+        }
+    }
+}

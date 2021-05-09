@@ -66,9 +66,9 @@ function loading_view() {
     //initialize main navigation
     const navigation_panel = new nav_pan($("#nav_tabs_container"));
 
-    // navigation_panel
-    //     .pre_def_intent('P.O.S')
-    //     .render_body_content(path.Operations.POS + 'pos.php', user_init);
+    navigation_panel
+        .pre_def_intent('P.O.S')
+        .render_body_content(path.Operations.POS + 'pos.php', pos_init);
 
     pos_init();
     let btn_clicked = null;
