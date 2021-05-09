@@ -109,6 +109,7 @@ if (isset($_SESSION['TOKEN'])) {
 
                     $sub_sale_entry_ID = $subSaleControl->insertSubSale($value);
 
+                    
                     var_dump($sub_sale_entry_ID);
                     exit();
 
