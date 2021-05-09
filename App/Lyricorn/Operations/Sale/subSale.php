@@ -12,15 +12,16 @@ class subSale extends Sale
     public function insertSubSale($data)
     {
         try{
-            print_r($data);   
-            exit();
-            // $stmt = $this->conn->prepare('INSERT INTO tbl_subSale (fk_saleID,fk_product,quantity,price,sub_total,created_by) VALUES (:fk_saleID,:fk_product,:quantity,:price,:sub_total,:created_by)');
-            // $stmt->execute(
-            //     $data                 
-            // );
-            // $id = $this->conn->lastInsertId();
+            $stmt = $this->conn->prepare('INSERT INTO tbl_subSale (fk_saleID,fk_product,quantity,price,sub_total,created_by) VALUES (:fk_saleID,:fk_product,:quantity,:price,:sub_total,:created_by)');
+            $stmt->execute(
+                $data                 
+            );
+            $id = $this->conn->lastInsertId();
+
+            echo $id;
+            return $id;
             // $this->updateStock($data);
-            // return $id;
+
         }catch(PDOException $e){
             echo $e->getMessage();
         }
