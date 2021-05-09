@@ -16,9 +16,8 @@ class subSale extends Sale
             $stmt->execute(
                 $data                 
             );
-            $this->updateStock($data);
-
             $id = $this->conn->lastInsertId();
+            $this->updateStock($data);
             return $id;
         }catch(PDOException $e){
             echo $e->getMessage();

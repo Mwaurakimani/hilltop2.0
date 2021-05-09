@@ -109,8 +109,6 @@ if (isset($_SESSION['TOKEN'])) {
 
                     $sub_sale_entry_ID = $subSaleControl->insertSubSale($value);
 
-                    ($sub_sale_entry_ID);
-
                     if(is_int((int) ($sub_sale_entry_ID))){
                         $transaction = new Transaction();
         
