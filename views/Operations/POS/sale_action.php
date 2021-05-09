@@ -1,6 +1,6 @@
 <?php
 
-use Lyricorn\Operations\Sale\sale;
+use Lyricorn\Operations\Sale\Sale;
 use Lyricorn\Operations\Sale\subSale;
 use Lyricorn\Operations\Transaction\Transaction;
 
