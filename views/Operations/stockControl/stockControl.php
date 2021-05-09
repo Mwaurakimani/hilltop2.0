@@ -1,7 +1,7 @@
 <?php
     require_once ('../../../App/init.php');
 
-    $sql = 'SELECT * FROM tbl_stockcontrol';
+    $sql = 'SELECT * FROM tbl_stockControl';
     $val1 = $admin->runQuery($sql);
     $val1->execute();
     $items = $val1->fetchAll();
