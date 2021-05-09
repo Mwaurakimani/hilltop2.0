@@ -4,7 +4,9 @@ $host_name: 'http://hilltop2.local';
     src: url("#{$host_name}/res/fonts/Ubuntu/Ubuntu-Medium.ttf") format('truetype');
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,500;1,100&family=Montserrat:ital,wght@1,100&display=swap');
 // USAGE
 // body {
 //     font-family: 'ubuntu_local', sans-serif;
 // }
+$primary_color:#3498DB;

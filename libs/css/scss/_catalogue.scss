@@ -1,0 +1,256 @@
+@import "./config";
+#catalog_form {
+    width: 100%;
+    height: 500px;
+    padding-bottom: 20px;
+    // background-color: rgb(253, 203, 203);
+    & input,
+    select {
+        transition: all 100ms ease-in;
+        margin-right: 10px;
+    }
+    & input:focus,
+    select:focus {
+        box-shadow: 0 -0 5px rgb(127, 226, 248);
+    }
+    & .item_name {
+        width: 100%;
+        height: 50px;
+        background-color: white;
+        box-shadow: 0 1px 5px rgb(189, 189, 189);
+        display: flex;
+        align-items: center;
+        & p {
+            width: 100px;
+            height: 100%;
+            padding: 0;
+            padding-left: 20px;
+            line-height: 50px;
+            font-weight: 600;
+            color: grey;
+            margin: 0;
+        }
+        & input {
+            height: 33px;
+            display: block;
+            width: 500px;
+            outline: $primary_color;
+            border: 1px solid grey;
+            border-radius: 3px;
+            &:focus {
+                border: 2px solid $primary_color;
+            }
+        }
+    }
+    & .product_details {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding-top: 10px;
+        & .store_details {
+            margin-bottom: 30px;
+            width: 55%;
+            box-shadow: 0 1px 7px rgb(151, 151, 151);
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            padding-top: 10px;
+            padding-bottom: 20px;
+            padding-left: 15px;
+            & .entry_card {
+                width: 100%;
+                margin-bottom: 5px;
+                & h3 {
+                    height: 40px;
+                    font-size: 130%;
+                    padding-left: 10px;
+                    margin: 0;
+                    line-height: 40px;
+                    color: rgb(60, 60, 60);
+                }
+                & .input_group_1 {
+                    width: 100%;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    padding-left: 10px;
+                    & label {
+                        width: 130px;
+                        font-weight: 600;
+                        color: $primary_color;
+                    }
+                    & input {
+                        width: 200px;
+                        height: 33px;
+                        border-radius: 4px;
+                        outline: none;
+                        border: 1px solid grey;
+                        padding-left: 5px;
+                        &:focus {
+                            border: 2px solid $primary_color;
+                        }
+                    }
+                    & input[type=checkbox] {
+                        display: block;
+                        margin: 0;
+                        margin-right: 5px;
+                        padding: 0;
+                        width: 12px;
+                        outline: none;
+                        &:focus {
+                            border: none;
+                        }
+                    }
+                    & span {
+                        font-weight: 400;
+                        color: grey;
+                        font-style: italic;
+                        padding-top: 5px;
+                    }
+                    & select {
+                        width: 200px;
+                        height: 33px;
+                        outline: none;
+                        border: 1px solid grey;
+                        border-radius: 4px;
+                        &:focus {
+                            border: 2px solid $primary_color;
+                        }
+                    }
+                    & .min_max {
+                        width: calc(100% - 130px);
+                        & .min_stock,
+                        img,
+                        .max_stock {
+                            font-size: 80%;
+                            width: 50px;
+                            & input {
+                                width: 80px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        & .management_details {
+            margin-bottom: 30px;
+            width: 44.2%;
+            box-shadow: 0 1px 7px rgb(151, 151, 151);
+            padding-left: 15px;
+            & .input_comment {
+                width: 100%;
+                padding-bottom: 20px;
+                & .entry_card {
+                    width: 100%;
+                    margin-bottom: 5px;
+                    & h3 {
+                        height: 40px;
+                        font-size: 130%;
+                        padding-left: 10px;
+                        margin: 0;
+                        line-height: 40px;
+                        color: rgb(60, 60, 60);
+                    }
+                    & .input_group_1 {
+                        width: 100%;
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: flex-start;
+                        padding-left: 10px;
+                        & label {
+                            width: 130px;
+                            font-weight: 600;
+                            color: $primary_color;
+                        }
+                        & input {
+                            width: 200px;
+                            height: 33px;
+                            border-radius: 4px;
+                            outline: none;
+                            border: 1px solid grey;
+                            padding-left: 5px;
+                            &:focus {
+                                border: 2px solid $primary_color;
+                            }
+                        }
+                        & input[type=checkbox] {
+                            display: block;
+                            margin: 0;
+                            margin-right: 5px;
+                            padding: 0;
+                            width: 12px;
+                            outline: none;
+                            &:focus {
+                                border: none;
+                            }
+                        }
+                        & span {
+                            font-weight: 400;
+                            color: grey;
+                            font-style: italic;
+                            padding-top: 5px;
+                        }
+                        & select {
+                            width: 200px;
+                            height: 33px;
+                            outline: none;
+                            border: 1px solid grey;
+                            border-radius: 4px;
+                            &:focus {
+                                border: 2px solid $primary_color;
+                            }
+                        }
+                        & .min_max {
+                            width: calc(100% - 130px);
+                            & .min_stock,
+                            img,
+                            .max_stock {
+                                font-size: 80%;
+                                width: 50px;
+                                & input {
+                                    width: 80px;
+                                }
+                            }
+                        }
+                        & textarea {
+                            width: calc(100% - 140px);
+                            height: 150px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.catalog_list {
+    & tbody {
+        & tr {
+            & .id_holder {
+                width: 8%;
+            }
+            & .name {
+                width: 30%;
+            }
+        }
+    }
+}
+
+.no_product_found {
+    width: 100%;
+    height: 100px;
+    & p {
+        width: 100%;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 150%;
+        color: grey;
+    }
+}

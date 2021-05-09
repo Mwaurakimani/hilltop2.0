@@ -1,8 +1,6 @@
 <?php
 namespace Lyricorn\User;
 
-use FFI\Exception;
-use Lyricorn\System\DbConnect;
 use Lyricorn\System\DbCrud;
 use PDOException;
 
@@ -10,42 +8,70 @@ class User extends DbCrud
 {
     function __construct()
     {
-        DbConnect::__construct();
         DbCrud::__construct();
         $this->conn = $this->getConnection();
         return;
     }
 
-    public function insertUser($name, $email,$password)
+    public function insertUser($data)
     {
         try {
 
-            $stmt = $this->conn->prepare('INSERT INTO  tbl_users(userName, email, password) VALUES(:name, :email, :password)');
+            $stmt = $this->conn->prepare('INSERT INTO  tbl_users( firstName, lastName, username, email, password, IDNumber, status, userGroup) 
+                                                          VALUES(:firstName,:lastName,:username,:email,:password,:IDNumber,:status,:userGroup)');
             $stmt->execute(array(
-                ':name'=>$name,
-                ':email'=>$email,
-                ':password'=>$password
+                ':firstName' => $data['firstName'],
+                ':lastName' => $data['lastName'],
+                ':username' => $data['username'],
+                ':email' => $data['email'],
+                ':password' => $data['password'],
+                ':IDNumber' => $data['ID_number'],
+                ':status' => $data['Status'],
+                ':userGroup' => $data['userGroup']
             ));
 
-            return $stmt;
+            $last_id = $this->conn->lastInsertId();
 
-        } catch (Exception $e) 
+            $return = [
+                'status'=>true,
+                'ID'=> $last_id
+            ];
+
+            return $return;
+
+
+        } catch (PDOException $e) 
         {
-            echo $e->getMessage();
+            $msg =  $e->getMessage();
+
+            $return = [
+                'status'=>false,
+                'Error'=> $msg
+            ];
+            return $return;
+            
         }
     }
 
-    public function updateUser($name, $id)
+    public function updateUser($data)
     {
         try{
+            $stmt = $this->conn->prepare("UPDATE tbl_users SET firstName=:firstName, lastName=:lastName, username=:username, email=:email, password=:password, IDNumber=:IDNumber, status=:status, userGroup=:userGroup WHERE userID=:userID;");
 
-            $stmt = $this->conn->prepare("UPDATE tbl_users SET userName = :name WHERE id = :id");
-            $stmt->execute(array(
-                ':name'=>$name,
-                ':id'=>$id
-            ));
-
-            return $stmt;
+            $stmt->execute(
+                array(
+                    ':userID' => $data['userID'],
+                    ':firstName' => $data['firstName'],
+                    ':lastName' => $data['lastName'],
+                    ':username' => $data['username'],
+                    ':email' => $data['email'],
+                    ':password' => $data['password'],
+                    ':IDNumber' => $data['ID_number'],
+                    ':status' => $data['Status'],
+                    ':userGroup' => $data['userGroup']
+                )                    
+            );
+            return true;
         }catch(PDOException $e){
             echo $e->getMessage();
         }
@@ -54,19 +80,27 @@ class User extends DbCrud
     public function deleteUser($id)
     {
         try {
-            $stmt = $this->conn->prepare("DELETE FROM tbl_users WHERE id = :id");
+            $stmt = $this->conn->prepare("DELETE FROM tbl_users WHERE userID = :id");
             $stmt->execute(array(
                 ':id'=>$id
             ));
-            return $stmt;
+            return true;
         } catch (PDOException $e) {
            echo $e->getMessage();
         }
     }
 
-    public function readUser()
-    {
-        
+    public function get_user_id($user_name){
+
+        $sql = 'SELECT * FROM tbl_users WHERE username = :name';
+        $user_return = $this->runQuery($sql);
+        $user_return->execute(array(
+            ':name'=>$user_name
+        ));
+        $users = $user_return->fetchAll();
+        $user_id = $users[0]["userID"];
+
+        return $user_id;
     }
     
 }

@@ -5,6 +5,8 @@ class Sys_Init
 {
     function __construct()
     {
-        echo "System Running ...";
+    }
+    public function log_out(){
+        session_destroy();
     }
 }

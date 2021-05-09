@@ -9,10 +9,14 @@ $password  = null;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $userName = $_POST['userName'];
     $password = $_POST['password'];
+    $error_data = array(
+        "username"=>[],
+        "password" => []
+    );
 
     if (empty($userName) || empty($password)) {
-        //some fields were empty
-        header("location:http://" . DOMAIN ."/index.php?logIn=801");
+       // user does not exist
+       array_push($error_data['username'],"Username field is empty");
     }else{
         //test if user name exist
         $user = new User();
@@ -27,18 +31,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if($rowUser){
             $user_password = $rowUser['password'];
 
-            $password_verify = true;
+            $password_verify = ($user_password == $password)? true:false;
 
             if($password_verify){
-
-                $_SESSION['USER'] = $rowUser['userName'];
+                $_SESSION['USER'] = $rowUser['username'];
 
                 header("location:http://" . DOMAIN ."/home.php");
                 exit();
+            }else{
+                //invalid password
+                array_push($error_data['password'],"Invalid password");
             }
         }else{
-            //some fields were empty
-            header("location:http://" . DOMAIN ."/index.php?logIn=802");
+            // user does not exist
+            array_push($error_data['username'],"User does not exist");
         }
 
     }
@@ -68,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- end render plugins -->
     <!-- site_content -->
     <link rel="stylesheet" type="text/css" href="libs/css/index.css">
-    <script src="libs/js/system/index.js" ></script>
+    <script src="libs/js/system/views/index.js" ></script>
     <script src="libs/js/3rd_party/liveJs.js" ></script>
     <!-- end_site_content -->
     <title>Log In</title>
@@ -85,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="par">
                             <img src="res/images/icons/user.png" alt="">
                         </div>
-                        <input type="text" name="userName" onfocus="System_call.method.input_focus()" onfocusout="System_call.method.input_focus_out()">
+                        <input type="text" required name="userName" onfocus="System_call.method.input_focus()" onfocusout="System_call.method.input_focus_out()" value="<?php if(isset($userName)){ echo $userName;}?>">
                         <div class="par">
                             <!-- <img src="res/images/icons/user.png" alt=""> -->
                         </div>
@@ -97,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="par">
                             <img src="res/images/icons/key.png" alt="">
                         </div>
-                        <input type="password" name="password" onfocus="System_call.method.input_focus()" onfocusout="System_call.method.input_focus_out()">
+                        <input type="password" required name="password" onfocus="System_call.method.input_focus()" onfocusout="System_call.method.input_focus_out()"  value="<?php if(isset($password)){ echo $password;}?>">
                         <div class="par">
                             <!-- <img src="res/images/icons/user.png" alt=""> -->
                         </div>
@@ -108,34 +114,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a href="">Forgot password?</a>
             </form>
         </div>
-    </div>
-    <?php
-    
-    if(isset($_GET['logIn'])){
-        $errorCode = $_GET['logIn'];
-
-        switch($errorCode){
-            case 801:
-                //not all fields were Entered
-                ?>
-                <script>
-                    alert("Not all fields were entered");
-                </script>
+       
                 <?php
-                break;
-            case 802:
-                //not all fields were Entered
+                if(isset($error_data)){
+                    if((count($error_data['username']) > 0) || (count($error_data['password']) > 0)){
+                        ?>
+                        <div class="error_render">
+                            <p>Sign In  error</p>
+                            <ul>
+                                <li>
+                                    <P>username:</P>
+                                    <ul>
+                                        <!-- <li>Empty Field</li> -->
+                                        <?php
+                                            foreach($error_data['username'] as $error){
+                                                ?>
+                                                <li><?php echo $error;?></li>
+                                                <?php
+                                            }
+                                        ?>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <P>Password</P>
+                                    <ul>
+                                        <!-- <li>Empty Field</li> -->
+                                        <?php
+                                            foreach($error_data['password'] as $error){
+                                                ?>
+                                                <li><?php echo $error;?></li>
+                                                <?php
+                                            }
+                                        ?>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    <?php
+                    }
+                }
                 ?>
-                <script>
-                    alert("User Does Not exist");
-                </script>
-                <?php
-                break;
-            default:
-                break;
-        }
-    }
-    ?>
+            
+    </div>  
 </body>
 
 </html>
