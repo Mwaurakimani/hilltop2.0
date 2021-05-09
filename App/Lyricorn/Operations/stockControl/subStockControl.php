@@ -13,7 +13,7 @@ class subStockControl extends StockControl
     {
         try {
 
-            $stmt = $this->conn->prepare('INSERT INTO  tbl_subStockEntry (fk_stockEntryID,fk_product,units,price) VALUES(:fk_stockEntryID,:fk_product,:units,:price)');
+            $stmt = $this->conn->prepare('INSERT INTO  tbl_SubStockEntry (fk_stockEntryID,fk_product,units,price) VALUES(:fk_stockEntryID,:fk_product,:units,:price)');
             $stmt->execute($data);
 
             $last_id = $this->conn->lastInsertId();

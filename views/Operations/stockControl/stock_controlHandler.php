@@ -246,7 +246,7 @@ if (isset($_SESSION['TOKEN'])) {
                         
                         //update tbl_subStock..... where fk_stockentry = (int)$prop['id'] and fk_product = fk_product
 
-                        $sql = 'UPDATE tbl_substockentry SET stk_returned=:stk_returned,sale_price=:sale_price WHERE fk_stockEntryID=:fk_stockEntryID AND fk_product=:fk_product';
+                        $sql = 'UPDATE tbl_SubStockEntry SET stk_returned=:stk_returned,sale_price=:sale_price WHERE fk_stockEntryID=:fk_stockEntryID AND fk_product=:fk_product';
                         $stmt = $sub_controller->runQuery($sql);
                         $stmt->execute(array(
                             ":stk_returned"=>$stk_returned,
