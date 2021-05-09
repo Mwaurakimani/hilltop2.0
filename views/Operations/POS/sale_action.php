@@ -1,7 +1,7 @@
 <?php
 
-use Lyricorn\Operations\Sale\Sale;
-use Lyricorn\Operations\Sale\subSale;
+use Lyricorn\Operations\sale\sale;
+use Lyricorn\Operations\sale\subSale;
 use Lyricorn\Operations\Transaction\Transaction;
 
 require_once ('../../../App/init.php');

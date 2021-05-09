@@ -6,12 +6,12 @@
     ],
     "settings": {
         "files.exclude": {
-            "**/.git*": true,
+            // "**/.git*": true,
             "package*": true,
             ".vs*": true,
             "node_*": true,
             "vendor*":true,
-            ".*":true,
+            // ".*":true,
             "favicon.ico":true,
             "REA*": true,
             "logo.png":true,
