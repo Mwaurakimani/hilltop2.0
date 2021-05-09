@@ -7,7 +7,7 @@
     $data_found2 = null;
 
     if(count($params) >= 1){
-        $sql = 'SELECT * FROM tbl_stockcontrol WHERE Entry_ID = :Entry_ID';
+        $sql = 'SELECT * FROM tbl_stockControl WHERE Entry_ID = :Entry_ID';
         $val1 = $admin->runQuery($sql);
         $val1->execute(array(
             ":Entry_ID"=>$params[0]
