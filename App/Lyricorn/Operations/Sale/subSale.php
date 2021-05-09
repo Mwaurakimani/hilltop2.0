@@ -18,9 +18,8 @@ class subSale extends Sale
             );
             $id = $this->conn->lastInsertId();
 
-            echo $id;
             return $id;
-            // $this->updateStock($data);
+            $this->updateStock($data);
 
         }catch(PDOException $e){
             echo $e->getMessage();
