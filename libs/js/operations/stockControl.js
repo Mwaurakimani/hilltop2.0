@@ -117,7 +117,7 @@ class stockControl extends View {
                 break;
             case "Return":
                 this.return_products();
-                this.success_fun = call_back_Return(msg);
+                this.success_fun = call_back_Return;
 
                 function call_back_Return(msg) {
                     alert("System updated");
@@ -211,7 +211,30 @@ class stockControl extends View {
         this.sub_entries = sub_entries;
     }
     return_products() {
+        var table = $(".body_holder>table");
+        var tbody = table.children().eq(1);
 
+        var sub_entries = [];
+
+        var trs = tbody.find("tr");
+
+        trs.each(function(index, value) {
+            var sub_entry = null;
+
+            var prod_id = $(value).children().eq(1).find("p").text();
+            var prod_unit = $(value).children().eq(3).find("input").val();
+            var prod_price = $(value).children().eq(4).find("input").val();
+
+            sub_entry = {
+                prod_id: prod_id,
+                prod_unit: prod_unit,
+                prod_price: prod_price
+            };
+
+            sub_entries.push(sub_entry);
+        });
+
+        this.sub_entries = sub_entries;
     }
 
     resolve() {
