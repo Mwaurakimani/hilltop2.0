@@ -20,7 +20,7 @@
             $data_found = true;
             $item = $items[0];
     
-            $sql = 'SELECT * FROM tbl_substockentry WHERE fk_stockEntryID = :fk_stockEntryID';
+            $sql = 'SELECT * FROM tbl_SubStockEntry WHERE fk_stockEntryID = :fk_stockEntryID';
             $val1 = $admin->runQuery($sql);
             $val1->execute(array(
                 ":fk_stockEntryID"=>$params[0]
