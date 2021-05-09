@@ -13,8 +13,6 @@
         $data_found = true;
     }
 
-    print_r($items);
-    exit();
 ?>
 <div class="content_body_title">
     <h4>Stock Control</h4>
