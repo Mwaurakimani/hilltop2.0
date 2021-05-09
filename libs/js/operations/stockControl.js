@@ -229,12 +229,11 @@ class stockControl extends View {
         return this;
 
         function callback(msg) {
-
-            $("#dev_error_display").html(msg);
-            // alert("Resolved");
-            // navigation_panel
-            //     .pre_def_intent('Stock Control')
-            //     .render_body_content('views/Operations/stockControl/stockControl.php', stock_handler_init);
+            // $("#dev_error_display").html(msg);
+            alert("Resolved");
+            navigation_panel
+                .pre_def_intent('Stock Control')
+                .render_body_content('views/Operations/stockControl/stockControl.php', stock_handler_init);
         }
     }
 
@@ -256,7 +255,7 @@ class stockControl extends View {
             el2 = $("[name='resolve']").children().eq(1).removeAttr("selected");
         }
 
-        console.log($(".body_holder>table tbody").html(" "));
+        $(".body_holder>table tbody").html("");
     }
 
 
