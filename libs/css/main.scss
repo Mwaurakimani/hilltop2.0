@@ -7,6 +7,9 @@
 @import "scss/catalogue";
 @import "scss/sale";
 @import "scss/transaction";
+//management
+@import "scss/notification";
+@import "scss/report";
 body,
 html {
     width: 100%;
@@ -383,7 +386,13 @@ html {
                     }
                 }
             }
-            & .pagination {}
+            & .pagination_custom {
+                background-color: red;
+                width: 100%;
+                height: 30px;
+                margin-top: 20px;
+                margin-bottom: 30px;
+            }
         }
     }
     & #side_bar_container {

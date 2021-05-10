@@ -13,48 +13,51 @@
     }
 ?>
 <div class="content_body_title">
-    <h4>Catalogue</h4>
+    <h4>Notifications</h4>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item active">Catalogue</li>
+            <li class="breadcrumb-item active">Notifications</li>
         </ol>
     </nav>
 </div>
-<div class="activity_bar">
-    <div class="action_bar">
-        <div class="btn_activity_bar">
-            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="catalogue.render_update()">
-                Add
-            </button>
-        </div>
-        <div class="search_field">
-            <input type="search" placeholder="Search for Item" onkeyup="catalogue.search_product()">
-        </div>
-        <div class="export_group">
-            <button type="button" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="catalogue.generate_csv_file()">
-                CSV
-            </button>
-        </div>
-        <div class="parent_data_sort">
-            <div class="input_select_item">
-                <select name="" id="">
-                    <option value="">Sort A-Z</option>
-                    <option value="">Sor tZ-A</option>
-                </select>
-            </div>
-            <!-- <div class="input_select_item">
-                <select name="" id="">
-                    <option value="">Enable Filter</option>
-                    <option value="">Disable Filter</option>
-                </select>
-            </div> -->
-        </div>
-    </div>
-    <div class="context_bar">
 
-    </div>
+<div class="catalog_list"  id="notification_panel">
+    <section>
+        <div class="notification_heading">
+            <h3>Unresolved Transfers</h3>
+        </div>
+        <div class="notification_body">
+            <?php
+                $sql = 'SELECT * FROM tbl_catalogue ORDER BY productName ASC';
+                $catalogue_return = $admin->runQuery($sql);
+                $catalogue_return->execute();
+                $catalogue = $catalogue_return->fetchAll();
+            ?>
+        </div>
+    </section>
+    <section>
+    <div class="notification_heading">
+            <h3>Stock Alerts</h3>
+        </div>
+        <div class="notification_body">
+
+        </div>
+    </section>
+    <section>
+    <div class="notification_heading">
+            <h3>Unresolved Transfers</h3>
+        </div>
+        <div class="notification_body">
+
+        </div>
+    </section>
 </div>
-<div class="catalog_list"  id="catalog_panel_1">
+<div id="dev_error_display">
+
+</div>
+
+<?php
+/*
     <table class="table table-striped table-bordered table-sm">
         <thead class="thead-dark">
             <tr>
@@ -115,9 +118,4 @@
             ?>
         </tbody>
     </table>
-
-    
-</div>
-<div id="dev_error_display">
-
-</div>
+*/

@@ -14,6 +14,10 @@ const importsObject = {
     modules: "system/classes/module.js",
     uplink: "system/classes/uplink.js",
 
+    //management
+    notification: "Management/Notification.js",
+    report: "Management/Report.js",
+
     //operations
     catalogue: "operations/catalogue.js",
     pos: "operations/pos.js",
@@ -67,8 +71,8 @@ function loading_view() {
     const navigation_panel = new nav_pan($("#nav_tabs_container"));
 
     navigation_panel
-        .pre_def_intent('P.O.S')
-        .render_body_content(path.Operations.POS + 'POS.php', pos_init);
+        .pre_def_intent('Notifications')
+        .render_body_content(path.Management.Notification + 'notifications.php', pos_init);
 
     pos_init();
     let btn_clicked = null;

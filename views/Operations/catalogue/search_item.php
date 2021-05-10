@@ -23,7 +23,7 @@ if (isset($_SESSION['TOKEN'])) {
     // var_dump($prop);
 
     if(!empty($prop)){
-        $sql = "SELECT * FROM tbl_catalogue WHERE productName LIKE CONCAT('%', :productName, '%')";
+        $sql = "SELECT * FROM tbl_catalogue WHERE productName LIKE CONCAT('%', :productName, '%') ORDER BY productName ASC ";
         $catalogue_return = $admin->runQuery($sql);
         $catalogue_return->execute(array(
             ":productName"=>$prop

@@ -989,6 +989,44 @@
   color: grey;
 }
 
+#notification_panel {
+  width: 99%;
+  margin: auto;
+  border: 1px solid grey;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
+
+#notification_panel > section {
+  width: 99%;
+  margin: auto;
+  background-color: white;
+  -webkit-box-shadow: 0 0 6px #8d8d8d;
+          box-shadow: 0 0 6px #8d8d8d;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+
+#notification_panel > section .notification_heading {
+  width: 100%;
+}
+
+#notification_panel > section .notification_heading h3 {
+  display: inline-block;
+  padding: 5px 20px;
+  margin: 0;
+  color: #3498DB;
+  font-weight: 500;
+  font-size: 150%;
+}
+
+#notification_panel > section .notification_body {
+  width: 100%;
+  height: 200px;
+  background-color: red;
+}
+
 body,
 html {
   width: 100%;
@@ -1505,6 +1543,14 @@ html {
 #body_container #body_content_container #item_content #user_panel_1 table tbody tr:hover {
   background-color: #3498DB;
   color: white;
+}
+
+#body_container #body_content_container #item_content .pagination_custom {
+  background-color: red;
+  width: 100%;
+  height: 30px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 #body_container #side_bar_container {

@@ -149,31 +149,31 @@ if(! isset($_SESSION['USER'])){
                 </div>
             </div>
 
-            <!-- <div class="nav_group">
+            <div class="nav_group">
                 <div class="group_head">
                     <h3 style="color:#3498DB">Management</h3>
                 </div>
                 <div class="group_body">
                     <ul>
-                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Management.notification+'notification.php',$('.item_content'));">
+                        <li onclick="navigation_panel.get_intent().render_body_content(path.Management.Notification +'notifications.php',$('.item_content').init(notification_init));">
                             <img src="<?php echo ICON_PATH.'mail.png' ?>" alt="">
                             <p>Notifications</p>
                         </li>
-                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Management.reports+'reports.php',$('.item_content'));">
+                        <li onclick="navigation_panel.get_intent().render_body_content(path.Management.reports +'Reports.php',$('.item_content').init(reports_init));">
                             <img src="<?php echo ICON_PATH.'report.png' ?>" alt="">
                             <p>Reports</p>
                         </li>
-                        <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Management.customization+'customization.php',$('.item_content'));">
+                        <!-- <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Management.customization+'customization.php',$('.item_content'));">
                             <img src="<?php echo ICON_PATH.'custom.png' ?>" alt="">
                             <p>Customization</p>
                         </li>
                         <li onclick="navigation_panel.pre_def_intent('Account').render_body_content(path.Management.mediaManagement+'mediaManagement.php',$('.item_content'));">
                             <img src="<?php echo ICON_PATH.'mediaManager.png' ?>" alt="">
                             <p>Media Management</p>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
-            </div> -->
+            </div>
 
             <div class="nav_group">
                 <div class="group_head">
